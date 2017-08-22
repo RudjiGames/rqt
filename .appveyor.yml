@@ -13,10 +13,6 @@ configuration:
     - Release
     - Retail
 
-platform:
-    - x86
-    - x64
-
 install:
     # Make compiler command line tools available
     - call .appveyor\set_compiler_env.bat

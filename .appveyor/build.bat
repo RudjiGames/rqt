@@ -31,8 +31,6 @@ echo ======================================================
 echo Compilation of Lua %LUA_VER% done.
 if defined NOCOMPAT echo Lua was built with compatibility flags disabled.
 
-echo Platform         - %platform%
-
 endlocal & set PATH=%INSTALL_DIR%\bin;%PATH%&^
 set INSTALL_DIR=%INSTALL_DIR%
 
