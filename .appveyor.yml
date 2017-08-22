@@ -20,6 +20,7 @@ install:
     - call .appveyor\install.bat     
     - set QTDIR_VS2015_x64=C:\Qt\5.7\msvc2015_64
     - set QTDIR_VS2015_x86=C:\Qt\5.7\msvc2015
+    - set LUA_VER=5.1.5
     - git clone --depth 1 https://github.com/milostosic/build   ..\build
     - git clone --depth 1 https://github.com/milostosic/rbase   ..\rbase
     - git clone --depth 1 https://github.com/milostosic/rdebug  ..\rdebug
