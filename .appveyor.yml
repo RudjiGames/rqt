@@ -9,9 +9,13 @@ environment:
 #  - TOOLSET: vs2017
 
 configuration:
-  - Debug
-  - Release
-  - Retail
+    - Debug
+    - Release
+    - Retail
+
+platform:
+    - x86
+    - x64
 
 install:
     # Make compiler command line tools available
