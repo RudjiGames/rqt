@@ -6,10 +6,10 @@ cd %APPVEYOR_BUILD_FOLDER%
 :: Set some defaults. Infer some variables.
 ::
 :: These are set globally
-if "%LUA_VER%" NEQ "" (
-	set LUA=lua
-	set LUA_SHORTV=%LUA_VER:~0,3%
-)
+set LUA_VER=5.1.5
+set LUA=lua
+set LUA_SHORTV=%LUA_VER:~0,3%
+
 
 :: Now we declare a scope
 Setlocal EnableDelayedExpansion EnableExtensions
