@@ -1,0 +1,33 @@
+shallow_clone: true
+
+os:
+  - Visual Studio 2015
+
+environment:
+  matrix:
+  - TOOLSET: vs2015
+#  - TOOLSET: vs2017
+
+configuration:
+  - Debug
+  - Release
+  - Retail
+
+install:
+    # Make compiler command line tools available
+    - call .appveyor\set_compiler_env.bat
+    # Get Lua sources
+    - call .appveyor\install.bat     
+    - set QTDIR_VS2015_x64=C:\Qt\5.7\msvc2015_64
+    - set QTDIR_VS2015_x86=C:\Qt\5.7\msvc2015
+    - git clone --depth 1 https://github.com/milostosic/build   ..\build
+    - git clone --depth 1 https://github.com/milostosic/rbase   ..\rbase
+    - git clone --depth 1 https://github.com/milostosic/rdebug  ..\rdebug
+    - git clone --depth 1 https://github.com/milostosic/DIA     ..\DIA
+    - ..\build\tools\windows\genie --file=genie\genie.lua %TOOLSET%
+
+before_build:
+    - call .appveyor\build.bat 
+
+build:
+  project: ../.build/windows/$(TOOLSET)/projects/rqt/rqt.sln
