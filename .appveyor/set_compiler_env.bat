@@ -19,12 +19,9 @@ if "%TOOLSET%"=="vs2013" (
 	set SET_VS_ENV="C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat"
 )
 
-@echo "1"
-
 :: Visual Studio detected
 endlocal & call %SET_VS_ENV% %arch%
 
-@echo "2"
 goto :eof
 
 :: MinGW detected

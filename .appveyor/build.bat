@@ -20,11 +20,11 @@ mkdir %INSTALL_DIR% 2>NUL
 xcopy /E downloads\lua-%LUA_VER% %BUILD_DIR%
 
 mkdir %BUILD_DIR%\etc 2> NUL
-copy etc\winmake.bat %BUILD_DIR%\etc\winmake.bat
+copy .appveyor\winmake.bat %BUILD_DIR%\etc\winmake.bat
 cd %BUILD_DIR%
 
-call etc\winmake %COMPATFLAG% || call :die "Failed to build"
-call etc\winmake install %INSTALL_DIR% || call :die "Failed to install"
+call .appveyor\winmake %COMPATFLAG% || call :die "Failed to build"
+call .appveyor\winmake install %INSTALL_DIR% || call :die "Failed to install"
 
 echo.
 echo ======================================================
