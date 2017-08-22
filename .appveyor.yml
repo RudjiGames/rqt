@@ -14,9 +14,9 @@ configuration:
     - Retail
 
 install:
-    - set PATH=C:\projects\luaforwindows\files;%PATH%
     - set QTDIR_VS2015_x64=C:\Qt\5.7\msvc2015_64
     - set QTDIR_VS2015_x86=C:\Qt\5.7\msvc2015
+    - set PATH=C:\projects\luaforwindows\files;%QTDIR_VS2015_x64%\bin;%PATH%
     - git clone --depth 1 https://github.com/milostosic/build   ..\build
     - git clone --depth 1 https://github.com/milostosic/rbase   ..\rbase
     - git clone --depth 1 https://github.com/milostosic/rdebug  ..\rdebug
