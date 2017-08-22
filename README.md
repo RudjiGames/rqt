@@ -16,7 +16,7 @@ You can get the latest source code by cloning it from github:
 Widgets
 ======
 
-![Assert dialog](https://github.com/milostosic/rtm/blob/master/src/tools/qt/mtuner/mtuner_screenshot.png)
+![Assert dialog](https://github.com/milostosic/rqt/blob/master/resources/rqt_assert.png)
 
 Dependencies
 ======
