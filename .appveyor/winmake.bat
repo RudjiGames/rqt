@@ -94,6 +94,9 @@ REM **********************************
 REM *   Check commandline            *
 REM **********************************
 
+rem debug
+echo pass 1
+
 SET CMDOK=FALSE
 if "%~1"=="" (
    SET CMDOK=TRUE
@@ -112,6 +115,10 @@ for %%a in (--nocompat) do (
       SHIFT
    )
 )
+
+rem debug
+echo pass 2
+
 for %%a in (%TOOLCHAINS%) do ( 
    if "%%a"=="%~1" (
       SET CMDOK=TRUE
@@ -123,6 +130,9 @@ if NOT %CMDOK%==TRUE (
    echo Unknown command or toolchain specified.
    goto :EXITERROR
 )
+
+rem debug
+echo pass 3
 
 REM **************************************
 REM *   Check for cleaning               *
@@ -149,6 +159,9 @@ if "%1"=="clean" (
 REM **************************************************
 REM *   Fetch the Lua version from the source code   *
 REM **************************************************
+
+rem debug
+echo pass 4
 
 Echo.
 Echo Checking source code to extract Lua version...
