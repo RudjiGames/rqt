@@ -24,6 +24,7 @@ mkdir downloads 2>NUL
 
 :: Download Lua
 if not exist downloads\lua-%LUA_VER% (
+	echo %LUA_URL%/lua-%LUA_VER%.tar.gz
 	curl --silent --fail --max-time 120 --connect-timeout 30 %LUA_URL%/lua-%LUA_VER%.tar.gz | %SEVENZIP% x -si -so -tgzip | %SEVENZIP% x -si -ttar -aoa -odownloads
 ) else (
 	echo Lua %LUA_VER% already downloaded at downloads\lua-%LUA_VER%
