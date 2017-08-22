@@ -31,10 +31,21 @@ if "%Configuration%"=="2008" (
 	set SET_VS_ENV="C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcvarsall.bat"
 )
 @echo "1"
+
 :: Visual Studio detected
-endlocal & call %SET_VS_ENV% %arch%
-goto :eof
+endlocal
+
+if "%platform%" EQU "x86" (
+	call %SET_VS_ENV% x86
+)
+
+if "%platform%" EQU "x64" (
+	call %SET_VS_ENV% x64
+)
+
+@rem & call %SET_VS_ENV% %arch%
 @echo "2"
+goto :eof
 
 :: MinGW detected
 :mingw
