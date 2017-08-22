@@ -31,7 +31,7 @@ DIA (Debug Interface Access) SDK - **Windows only**
 
 	git clone https://github.com/milostosic/DIA.git 
 
-Lua runtime is required to support Qt projects using **[build]**(https://github.com/milostosic/build)
+Lua runtime is required to support Qt projects using [build](https://github.com/milostosic/build)
 
 Author
 ======
