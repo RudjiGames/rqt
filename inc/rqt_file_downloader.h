@@ -3,8 +3,8 @@
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
-#ifndef __RTM_RQT_FILE_DOWNLOADER_H__
-#define __RTM_RQT_FILE_DOWNLOADER_H__
+#ifndef RTM_RQT_FILE_DOWNLOADER_H
+#define RTM_RQT_FILE_DOWNLOADER_H
 
 class RQtFileDownloader : public QObject
 {
@@ -25,4 +25,4 @@ private Q_SLOTS:
 	void fileDownloaded(QNetworkReply* _reply);
 };
  
-#endif // __RTM_RQT_FILE_DOWNLOADER_H__
+#endif // RTM_RQT_FILE_DOWNLOADER_H

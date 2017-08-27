@@ -3,8 +3,8 @@
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
-#ifndef __RTM_RQT_WIDGET_DRAGGABLE_LISTWIDGET_H__
-#define __RTM_RQT_WIDGET_DRAGGABLE_LISTWIDGET_H__
+#ifndef RTM_RQT_WIDGET_DRAGGABLE_LISTWIDGET_H
+#define RTM_RQT_WIDGET_DRAGGABLE_LISTWIDGET_H
 
 #include <QtWidgets/QListWidget>
 
@@ -27,4 +27,4 @@ protected:
 	void mouseMoveEvent(QMouseEvent* _event);
 };
 
-#endif // __RTM_RQT_WIDGET_DRAGGABLE_LISTWIDGET_H__
+#endif // RTM_RQT_WIDGET_DRAGGABLE_LISTWIDGET_H

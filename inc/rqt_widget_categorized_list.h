@@ -3,8 +3,8 @@
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
-#ifndef __RTM_RQT_WIDGET_CATEGORIZED_LIST_H__
-#define __RTM_RQT_WIDGET_CATEGORIZED_LIST_H__
+#ifndef RTM_RQT_WIDGET_CATEGORIZED_LIST_H
+#define RTM_RQT_WIDGET_CATEGORIZED_LIST_H
 
 class QComboBox;
 class QScrollArea;
@@ -40,4 +40,4 @@ class RQtWidgetCategorizedList : public QWidget
 		int hasCategory(const QString& _category) const;
 };
 
-#endif // __RTM_RQT_WIDGET_CATEGORIZED_LIST_H__
+#endif // RTM_RQT_WIDGET_CATEGORIZED_LIST_H

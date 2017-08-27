@@ -3,8 +3,8 @@
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
-#ifndef __RTM_RQT_PCH_H__
-#define __RTM_RQT_PCH_H__
+#ifndef RTM_RQT_PCH_H
+#define RTM_RQT_PCH_H
 
 #define RBASE_NAMESPACE rqt
 #define RTM_DEFINE_STL_TYPES
@@ -44,4 +44,4 @@
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
-#endif // __RTM_RQT_PCH_H__
+#endif // RTM_RQT_PCH_H

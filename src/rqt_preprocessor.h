@@ -3,8 +3,8 @@
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
-#ifndef __RTM_RQT_PREPROCESSOR_H__
-#define __RTM_RQT_PREPROCESSOR_H__
+#ifndef RTM_RQT_PREPROCESSOR_H
+#define RTM_RQT_PREPROCESSOR_H
 
 namespace rqt {
 
@@ -43,4 +43,4 @@ public:
 
 } // namespace rqt
 
-#endif // __RTM_RQT_PREPROCESSOR_H__
+#endif // RTM_RQT_PREPROCESSOR_H

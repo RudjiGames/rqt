@@ -3,8 +3,8 @@
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
-#ifndef __RTM_RQT_H__
-#define __RTM_RQT_H__
+#ifndef RTM_RQT_H
+#define RTM_RQT_H
 
 struct rtmLibInterface;
 
@@ -53,4 +53,4 @@ namespace rqt {
 
 } // namespace rqt
 
-#endif // __RTM_RQT_H__
+#endif // RTM_RQT_H

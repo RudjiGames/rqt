@@ -3,8 +3,8 @@
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
-#ifndef __RTM_RQT_LOCALIZE_H__
-#define __RTM_RQT_LOCALIZE_H__
+#ifndef RTM_RQT_LOCALIZE_H
+#define RTM_RQT_LOCALIZE_H
 
 class RQtLocalize : public QObject
 {
@@ -32,4 +32,4 @@ protected Q_SLOTS:
 	void languageActionTriggered(QAction* _action);    
 };
 
-#endif // __RTM_RQT_LOCALIZE_H__
+#endif // RTM_RQT_LOCALIZE_H

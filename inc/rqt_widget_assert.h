@@ -3,8 +3,8 @@
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
-#ifndef __RTM_RQT_WIDGET_ASSERT_H__
-#define __RTM_RQT_WIDGET_ASSERT_H__
+#ifndef RTM_RQT_WIDGET_ASSERT_H
+#define RTM_RQT_WIDGET_ASSERT_H
 
 class QTextEdit;
 class QTableWidget;
@@ -55,4 +55,4 @@ public:
 	void setLogWidget(QTextEdit* _log);
 };
 
-#endif // __RTM_RQT_WIDGET_ASSERT_H__
+#endif // RTM_RQT_WIDGET_ASSERT_H
