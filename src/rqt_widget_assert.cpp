@@ -16,14 +16,16 @@ static int RESULT_BREAK		= 1;
 static int RESULT_QUIT		= 2;
 static int RESULT_REPORT	= 3;
 
-#ifdef RTM_PLATFORM_WINDOWS
+#if RTM_PLATFORM_WINDOWS
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
+#else
+#include <QProcess>
 #endif
 
 static void killCurrentProcces()
 {
-#ifdef RTM_PLATFORM_WINDOWS
+#if RTM_PLATFORM_WINDOWS
   enum { ExitCode = 0 };
   ::TerminateProcess(::GetCurrentProcess(), ExitCode);
 #elif RTM_PLATFORM_LINUX || RTM_PLATFORM_OSX
@@ -31,7 +33,7 @@ static void killCurrentProcces()
   QProcess::startDetached("kill -9 " + QString::number(pid));
 #elif
 #error "Platform not supported!"
-#endif 
+#endif
 }
 
 class RQThreadMover : public QObject
@@ -48,7 +50,7 @@ public:
 	void*			m_stackTrace[128];
 
 	virtual bool event(QEvent* _ev)
-	{   
+	{
 		if (_ev->type() == QEvent::User)
 		{
 			RQtWidgetAssert assert;
@@ -97,7 +99,7 @@ void RQtWidgetAssert::setFileLineMsgTid(const char* _file, int _line, const char
 	QLabel* file		= findChild<QLabel*>("label_file");
 	QLabel* line		= findChild<QLabel*>("label_line");
 	QLabel* thread		= findChild<QLabel*>("label_thread");
-	
+
 	condition->setText(_msg);
 	file->setText(_file);
 	line->setText(QString::number(_line));
