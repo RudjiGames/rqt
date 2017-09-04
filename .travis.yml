@@ -15,8 +15,13 @@ addons:
     - g++-4.8
     - clang
 
+before_install:
+    - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository ppa:beineri/opt-qt571-trusty -y; fi
+
 install:
-    - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
+    - sudo apt-get install -qq qt57base; source /opt/qt57/bin/qt57-env.sh;     
+    - sudo luarocks install luafilesystem
+      #    - export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/qt57/gcc_64/lib/pkgconfig
 
 before_script:
     - git clone --depth 1 https://github.com/milostosic/build  ../build
@@ -26,7 +31,6 @@ before_script:
 script:
     - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install libc6-dev-i386 gcc-multilib g++-multilib; fi
     - if [ "$TRAVIS_OS_NAME" == "linux" ]; then make linux CXX="g++-4.8" CC="gcc-4.8"; fi
-
 #    - if [ "$TRAVIS_OS_NAME" == "osx" ]; then make test; fi
 
 branches:
