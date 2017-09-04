@@ -49,22 +49,22 @@ void RQWidgetDraggableListWidget::mouseMoveEvent(QMouseEvent* _event)
 	if ((_event->pos() - m_startPos).manhattanLength() < QApplication::startDragDistance())
 		return;
 
-	QListWidgetItem* item = itemAt(_event->pos());
-	if (!item)
+	QListWidgetItem* itemHover = itemAt(_event->pos());
+	if (!itemHover)
 		return;
 
 	QDrag* drag = new QDrag(this);
 
 	QByteArray itemData;
 	QDataStream dataStream(&itemData, QIODevice::WriteOnly);
-	dataStream << item->text() << QPoint(_event->pos());
+	dataStream << itemHover->text() << QPoint(_event->pos());
 
-	QMimeData *mimeData = new QMimeData;
-	mimeData->setData("application/rtm-list", itemData);
-	drag->setMimeData(mimeData);
+	QMimeData* dataMime = new QMimeData;
+	dataMime->setData("application/rtm-list", itemData);
+	drag->setMimeData(dataMime);
 
 	QPixmap pix;
-	QIcon icon = item->icon();
+	QIcon icon = itemHover->icon();
 	QList<QSize> sizes = icon.availableSizes();
 	if (sizes.size() > 0)
 		pix = icon.pixmap(icon.availableSizes()[0], QIcon::Normal, QIcon::On);
@@ -72,8 +72,8 @@ void RQWidgetDraggableListWidget::mouseMoveEvent(QMouseEvent* _event)
 	{
 		QPixmap fontEst(1,1);
 		QPainter painterFontEst(&fontEst);
-		const QFont& font = painterFontEst.font();
-		QFontMetrics fm(font);
+		const QFont& fnt = painterFontEst.font();
+		QFontMetrics fm(fnt);
 		int pixelsWide = fm.width(item->text());
 		int pixelsHigh = fm.height();
 

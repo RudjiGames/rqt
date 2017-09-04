@@ -47,9 +47,9 @@ RQtWidgetCategorizedList::~RQtWidgetCategorizedList()
 
 int RQtWidgetCategorizedList::addCategory(const QString& _category)
 {
-	int find = hasCategory(_category);
-	if (find != -1)
-		return find;
+	int idx = hasCategory(_category);
+	if (idx != -1)
+		return found;
 
 	ListCategory* cat = new ListCategory();
 	cat->m_name		= _category;
@@ -61,8 +61,8 @@ int RQtWidgetCategorizedList::addCategory(const QString& _category)
 
 void RQtWidgetCategorizedList::setCategoryIcon(const QString& _category, const QIcon& _icon)
 {
-	int find = hasCategory(_category);
-	if (find != -1)
+	int idx = hasCategory(_category);
+	if (idx != -1)
 		return;
 
 	ListCategory* cat = m_categories[find];
@@ -108,9 +108,9 @@ void RQtWidgetCategorizedList::build()
 			Item& item = cat->m_items[w];
 			list->addItem(new QListWidgetItem(item.m_icon, item.m_name));
 		}
-		int size = list->sizeHintForRow(0);
-		list->setMinimumHeight(size*cat->m_items.size() + 6);
-		list->setMaximumHeight(size*cat->m_items.size() + 6);
+		int sizeH = list->sizeHintForRow(0);
+		list->setMinimumHeight(sizeH * cat->m_items.size() + 6);
+		list->setMaximumHeight(sizeH * cat->m_items.size() + 6);
 		list->setHidden((cat->m_items.size() == 0) || (!cat->m_expanded));
 		button->setHidden(cat->m_items.size() == 0);
 
@@ -167,9 +167,9 @@ void RQtWidgetCategorizedList::filterChanged(const QString& _filter)
 		}
 		list->adjustSize();
 
-		int size = list->sizeHintForRow(0);
-		list->setMinimumHeight(size*visible + 6);
-		list->setMaximumHeight(size*visible + 6);
+		int sizeH = list->sizeHintForRow(0);
+		list->setMinimumHeight(sizeH * visible + 6);
+		list->setMaximumHeight(sizeH * visible + 6);
 		list->setHidden(visible == 0);
 		button->setHidden(visible == 0);
 	}
