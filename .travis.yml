@@ -20,10 +20,10 @@ addons:
     - qt59base
 
 before_install:
-    - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo add-apt-repository ppa:beineri/opt-qt571-trusty -y; fi
+    - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-add-repository ppa:beineri/opt-qt591-trusty -y; fi
 
 install:
-    - sudo apt-get install -qq qt57base; source /opt/qt57/bin/qt57-env.sh;     
+    - sudo apt-get install -qq qt59base; source /opt/qt59/bin/qt59-env.sh; 
     - sudo luarocks install luafilesystem
       #    - export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/qt57/gcc_64/lib/pkgconfig
 
