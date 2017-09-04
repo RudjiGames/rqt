@@ -26,12 +26,10 @@ install:
     - sudo apt-get install -qq qt59base; source /opt/qt59/bin/qt59-env.sh;
     - sudo apt-get install luarocks
     - sudo luarocks install luafilesystem
-    - export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/qt59/gcc_64/lib/pkgconfig
+    - export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/qt59/lib/pkgconfig
 
 before_script:
-    - ls /opt
-    - ls /opt/qt59
-    - ls /opt/qt59/59
+    - ls /opt/qt59/lib
     - git clone --depth 1 https://github.com/milostosic/build  ../build
     - git clone --depth 1 https://github.com/milostosic/rbase  ../rbase
     - git clone --depth 1 https://github.com/milostosic/rdebug ../rdebug
