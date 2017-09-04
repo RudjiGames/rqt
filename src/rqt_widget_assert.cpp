@@ -31,7 +31,7 @@ static void killCurrentProcces()
 #elif RTM_PLATFORM_LINUX || RTM_PLATFORM_OSX
   qint64 pid = QCoreApplication::applicationPid();
   QProcess::startDetached("kill -9 " + QString::number(pid));
-#elif
+#else
 #error "Platform not supported!"
 #endif
 }
@@ -98,12 +98,12 @@ void RQtWidgetAssert::setFileLineMsgTid(const char* _file, int _line, const char
 	QLabel* condition	= findChild<QLabel*>("label_condition");
 	QLabel* file		= findChild<QLabel*>("label_file");
 	QLabel* line		= findChild<QLabel*>("label_line");
-	QLabel* thread		= findChild<QLabel*>("label_thread");
+	QLabel* threadl		= findChild<QLabel*>("label_thread");
 
 	condition->setText(_msg);
 	file->setText(_file);
 	line->setText(QString::number(_line));
-	thread->setText(QString::number(_tid));
+	threadl->setText(QString::number(_tid));
 }
 
 void RQtWidgetAssert::setNumFrames(uint32_t _frames)
