@@ -31,6 +31,8 @@ install:
     - sudo luarocks install luafilesystem
 
 before_script:
+    - ls /opt/qt59 -l
+    - ls /opt/qt59/include -l
     - git clone --depth 1 https://github.com/milostosic/build  ../build
     - git clone --depth 1 https://github.com/milostosic/rbase  ../rbase
     - git clone --depth 1 https://github.com/milostosic/rdebug ../rdebug
