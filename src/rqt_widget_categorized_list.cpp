@@ -121,22 +121,22 @@ void RQtWidgetCategorizedList::build()
 	QSpacerItem* spacer = new QSpacerItem(1, 1, QSizePolicy::Minimum, QSizePolicy::Expanding);
 	nodesLayout->addSpacerItem(spacer);
 
-	int size = 0;
+	int sizew = 0;
 	for (int i=0; i<m_categories.size(); ++i)
-		size = qMax(size, m_categories[i]->m_list->sizeHintForColumn(0));
-	size *= 2;
+		sizew = qMax(sizew, m_categories[i]->m_list->sizeHintForColumn(0));
+	sizew *= 2;
 	
 	for (int i = 0; i<m_categories.size(); ++i)
 	{
-		m_categories[i]->m_button->setMaximumWidth(size);
-		m_categories[i]->m_list->setMaximumWidth(size);
+		m_categories[i]->m_button->setMaximumWidth(sizew);
+		m_categories[i]->m_list->setMaximumWidth(sizew);
 	}
 	
 	m_scroll->setWidget(frame);
 
 	QWidget* p = qobject_cast<QWidget*>(this->parent());
-	p->setMinimumWidth(size);
-	p->setMaximumWidth(size);
+	p->setMinimumWidth(sizew);
+	p->setMaximumWidth(sizew);
 }
 
 int RQtWidgetCategorizedList::hasCategory(const QString& _category) const
