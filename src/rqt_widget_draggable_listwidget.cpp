@@ -74,7 +74,7 @@ void RQWidgetDraggableListWidget::mouseMoveEvent(QMouseEvent* _event)
 		QPainter painterFontEst(&fontEst);
 		const QFont& fnt = painterFontEst.font();
 		QFontMetrics fm(fnt);
-		int pixelsWide = fm.width(item->text());
+		int pixelsWide = fm.width(itemHover->text());
 		int pixelsHigh = fm.height();
 
 		pix = QPixmap(pixelsWide*2,pixelsHigh*4);
@@ -83,7 +83,7 @@ void RQWidgetDraggableListWidget::mouseMoveEvent(QMouseEvent* _event)
 		painter.setPen(QColor(255,255,255,255));
 		painter.drawRect(0,0,pixelsWide*2,pixelsHigh*4);
 		painter.setPen(QColor(0,0,0,255));
-		painter.drawText(QPoint(pixelsWide/2, pixelsHigh*2), item->text());
+		painter.drawText(QPoint(pixelsWide/2, pixelsHigh*2), itemHover->text());
 	}
 
 	drag->setHotSpot(QPoint(0,0));

@@ -49,7 +49,7 @@ int RQtWidgetCategorizedList::addCategory(const QString& _category)
 {
 	int idx = hasCategory(_category);
 	if (idx != -1)
-		return found;
+		return idx;
 
 	ListCategory* cat = new ListCategory();
 	cat->m_name		= _category;
@@ -65,9 +65,9 @@ void RQtWidgetCategorizedList::setCategoryIcon(const QString& _category, const Q
 	if (idx != -1)
 		return;
 
-	ListCategory* cat = m_categories[find];
+	ListCategory* cat = m_categories[idx];
 	cat->m_icon = _icon;
-	m_combo->setItemIcon(find + g_skipItems, _icon);
+	m_combo->setItemIcon(idx + g_skipItems, _icon);
 }
 
 void RQtWidgetCategorizedList::addItem(const QString& _category, const QString& _name, QIcon* _icon)
