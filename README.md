@@ -1,6 +1,7 @@
 rqt
 ======
 
+[![Build Status](https://travis-ci.org/milostosic/rqt.svg?branch=master)](https://travis-ci.org/milostosic/rqt)
 [![Build status](https://ci.appveyor.com/api/projects/status/i12r49fgjsfr5v0q?svg=true)](https://ci.appveyor.com/project/milostosic/rqt)
 [![License](https://img.shields.io/badge/license-BSD--2%20clause-blue.svg)](https://github.com/milostosic/rqt/blob/master/LICENSE)
 
