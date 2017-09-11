@@ -9,6 +9,7 @@
 class QTextEdit;
 class QTableWidget;
 
+#include <rdebug/inc/rdebug.h>
 #include <QtWidgets/QDialog>
 
 class RQtWidgetAssert : public QDialog
