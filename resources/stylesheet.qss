@@ -166,42 +166,42 @@ QScrollBar::down-arrow:vertical
 
 QScrollBar:left-arrow:horizontal:enabled
 {
-	background-image: url(":/resources/icons/scrollbar_arrow_left_enabled.png");
+	background-image: url(":/rqt/resources/icons/scrollbar_arrow_left_enabled.png");
 }
 
 QScrollBar:left-arrow:horizontal:disabled
 {
-	background-image: url(":/resources/icons/scrollbar_arrow_left_disabled.png");
+	background-image: url(":/rqt/resources/icons/scrollbar_arrow_left_disabled.png");
 }
 
 QScrollBar:right-arrow:horizontal:enabled
 {
-	background-image: url(":/resources/icons/scrollbar_arrow_right_enabled.png");
+	background-image: url(":/rqt/resources/icons/scrollbar_arrow_right_enabled.png");
 }
 
 QScrollBar:right-arrow:horizontal:disabled
 {
-	background-image: url(":/resources/icons/scrollbar_arrow_right_disabled.png");
+	background-image: url(":/rqt/resources/icons/scrollbar_arrow_right_disabled.png");
 }
 
 QScrollBar:up-arrow:vertical:enabled
 {
-	background-image: url(":/resources/icons/scrollbar_arrow_up_enabled.png");
+	background-image: url(":/rqt/resources/icons/scrollbar_arrow_up_enabled.png");
 }
 
 QScrollBar:up-arrow:vertical:disabled
 {
-	background-image: url(":/resources/icons/scrollbar_arrow_up_disabled.png");
+	background-image: url(":/rqt/resources/icons/scrollbar_arrow_up_disabled.png");
 }
 
 QScrollBar:down-arrow:vertical:enabled
 {
-	background-image: url(":/resources/icons/scrollbar_arrow_down_enabled.png");
+	background-image: url(":/rqt/resources/icons/scrollbar_arrow_down_enabled.png");
 }
 
 QScrollBar:down-arrow:vertical:disabled
 {
-	background-image: url(":/resources/icons/scrollbar_arrow_down_disabled.png");
+	background-image: url(":/rqt/resources/icons/scrollbar_arrow_down_disabled.png");
 }
 
 
@@ -281,17 +281,17 @@ QMenu::separator
 QMenu::right-arrow
 {
 	margin: 4px;
-	image: url(":/resources/icons/menu_arrow_right_enabled.png");
+	image: url(":/rqt/resources/icons/menu_arrow_right_enabled.png");
 }
 
 QMenu::right-arrow:selected
 {
-	image: url(":/resources/icons/menu_arrow_right_selected.png");
+	image: url(":/rqt/resources/icons/menu_arrow_right_selected.png");
 }
 
 QMenu::right-arrow:disabled
 {
-	image: url(":/resources/icons/menu_arrow_right_disabled.png");
+	image: url(":/rqt/resources/icons/menu_arrow_right_disabled.png");
 }
 
 QMenu::tearoff
@@ -531,22 +531,22 @@ QHeaderView::down-arrow
 
 QHeaderView::up-arrow
 {
-	image: url(":/resources/icons/header_arrow_up_enabled.png");
+	image: url(":/rqt/resources/icons/header_arrow_up_enabled.png");
 }
 
 QHeaderView::up-arrow:disabled
 {
-	image: url(":/resources/icons/header_arrow_up_disabled.png");
+	image: url(":/rqt/resources/icons/header_arrow_up_disabled.png");
 }
 
 QHeaderView::down-arrow
 {
-	image: url(":/resources/icons/header_arrow_down_enabled.png");
+	image: url(":/rqt/resources/icons/header_arrow_down_enabled.png");
 }
 
 QHeaderView::down-arrow:disabled
 {
-	image: url(":/resources/icons/header_arrow_down_disabled.png");
+	image: url(":/rqt/resources/icons/header_arrow_down_disabled.png");
 }
 
 
@@ -595,24 +595,26 @@ QTreeView::branch:selected
 }
 #endif
 
+QTreeView::branch:has-children:closed,
 QTreeView::branch:has-children:closed:enabled
 {
-	image: url(":/resources/icons/scrollbar_arrow_right_enabled.png");
+	image: url(":/rqt/resources/icons/scrollbar_arrow_right_enabled.png");
 }
 
+QTreeView::branch:has-children:open,
 QTreeView::branch:has-children:open:enabled
 {
-	image: url(":/resources/icons/scrollbar_arrow_down_enabled.png");
+	image: url(":/rqt/resources/icons/scrollbar_arrow_down_enabled.png");
 }
 
 QTreeView::branch:has-children:closed:disabled
 {
-	image: url(":/resources/icons/scrollbar_arrow_right_disabled.png");
+	image: url(":/rqt/resources/icons/scrollbar_arrow_right_disabled.png");
 }
 
 QTreeView::branch:has-children:open:disabled
 {
-	image: url(":/resources/icons/scrollbar_arrow_down_disabled.png");
+	image: url(":/rqt/resources/icons/scrollbar_arrow_down_disabled.png");
 }
 
 QTreeView::branch:has-sibling
@@ -652,46 +654,49 @@ QGroupBox::indicator:hover
 	color: RQT_HOVER_TEXT_COLOR;
 }
 
+QCheckBox::indicator:checked,
+QAbstractItemView::indicator:checked,
+QGroupBox::indicator:checked,
 QCheckBox::indicator:checked:enabled,
 QAbstractItemView::indicator:checked:enabled,
 QGroupBox::indicator:checked:enabled
 {
-	image: url(":/resources/icons/checkbox_checked_enabled.png");
+	image: url(":/rqt/resources/icons/checkbox_checked_enabled.png");
 }
 
 QCheckBox::indicator:unchecked:enabled,
 QAbstractItemView::indicator:unchecked:enabled,
 QGroupBox::indicator:unchecked:enabled
 {
-	image: url(":/resources/icons/checkbox_unchecked_enabled.png");
+	image: url(":/rqt/resources/icons/checkbox_unchecked_enabled.png");
 }
 
 QCheckBox::indicator:indeterminate:enabled,
 QAbstractItemView::indicator:indeterminate:enabled,
 QGroupBox::indicator:indeterminate:enabled
 {
-	image: url(":/resources/icons/checkbox_indeterminate_enabled.png");
+	image: url(":/rqt/resources/icons/checkbox_indeterminate_enabled.png");
 }
 
 QCheckBox::indicator:checked:disabled,
 QAbstractItemView::indicator:checked:disabled,
 QGroupBox::indicator:checked:disabled
 {
-	image: url(":/resources/icons/checkbox_checked_disabled.png");
+	image: url(":/rqt/resources/icons/checkbox_checked_disabled.png");
 }
 
 QCheckBox::indicator:unchecked:disabled,
 QAbstractItemView::indicator:unchecked:disabled,
 QGroupBox::indicator:unchecked:disabled
 {
-	image: url(":/resources/icons/checkbox_unchecked_disabled.png");
+	image: url(":/rqt/resources/icons/checkbox_unchecked_disabled.png");
 }
 
 QCheckBox::indicator:indeterminate:disabled,
 QAbstractItemView::indicator:indeterminate:disabled,
 QGroupBox::indicator:indeterminate:disabled
 {
-	image: url(":/resources/icons/checkbox_indeterminate_disabled.png");
+	image: url(":/rqt/resources/icons/checkbox_indeterminate_disabled.png");
 }
 
 
@@ -701,22 +706,22 @@ QGroupBox::indicator:indeterminate:disabled
 
 QRadioButton::indicator:checked:enabled
 {
-	image: url(":/resources/icons/radiobutton_checked_enabled.png");
+	image: url(":/rqt/resources/icons/radiobutton_checked_enabled.png");
 }
 
 QRadioButton::indicator:unchecked:enabled
 {
-	image: url(":/resources/icons/radiobutton_unchecked_enabled.png");
+	image: url(":/rqt/resources/icons/radiobutton_unchecked_enabled.png");
 }
 
 QRadioButton::indicator:checked:disabled
 {
-	image: url(":/resources/icons/radiobutton_checked_disabled.png");
+	image: url(":/rqt/resources/icons/radiobutton_checked_disabled.png");
 }
 
 QRadioButton::indicator:unchecked:disabled
 {
-	image: url(":/resources/icons/radiobutton_unchecked_disabled.png");
+	image: url(":/rqt/resources/icons/radiobutton_unchecked_disabled.png");
 }
 
 
@@ -874,17 +879,17 @@ QComboBox::drop-down:hover
 
 QComboBox::down-arrow:enabled
 {
-	image: url(":/resources/icons/combobox_arrow_down_enabled.png");
+	image: url(":/rqt/resources/icons/combobox_arrow_down_enabled.png");
 }
 
 QComboBox::down-arrow:disabled
 {
-	image: url(":/resources/icons/combobox_arrow_down_disabled.png");
+	image: url(":/rqt/resources/icons/combobox_arrow_down_disabled.png");
 }
 
 QComboBox::down-arrow:hover
 {
-	image: url(":/resources/icons/combobox_arrow_down_selected.png");
+	image: url(":/rqt/resources/icons/combobox_arrow_down_selected.png");
 }
 
 QComboBox QAbstractItemView
@@ -932,22 +937,22 @@ QAbstractSpinBox::down-button:pressed
 
 QAbstractSpinBox::up-arrow:enabled
 {
-	image: url(":/resources/icons/spinbox_arrow_up_enabled.png");
+	image: url(":/rqt/resources/icons/spinbox_arrow_up_enabled.png");
 }
 
 QAbstractSpinBox::up-arrow:disabled
 {
-	image: url(":/resources/icons/spinbox_arrow_up_disabled.png");
+	image: url(":/rqt/resources/icons/spinbox_arrow_up_disabled.png");
 }
 
 QAbstractSpinBox::down-arrow:enabled
 {
-	image: url(":/resources/icons/spinbox_arrow_down_enabled.png");
+	image: url(":/rqt/resources/icons/spinbox_arrow_down_enabled.png");
 }
 
 QAbstractSpinBox::down-arrow:disabled
 {
-	image: url(":/resources/icons/spinbox_arrow_down_disabled.png");
+	image: url(":/rqt/resources/icons/spinbox_arrow_down_disabled.png");
 }
 
 

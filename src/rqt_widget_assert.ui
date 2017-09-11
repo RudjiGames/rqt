@@ -21,7 +21,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>:/resources/images/error.png</normaloff>:/resources/images/error.png</iconset>
+    <normaloff>:/rqt/resources/images/error.png</normaloff>:/rqt/resources/images/error.png</iconset>
   </property>
   <property name="modal">
    <bool>true</bool>
