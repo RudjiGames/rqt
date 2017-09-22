@@ -25,4 +25,4 @@ install:
     - ..\build\tools\windows\genie --file=genie\genie.lua %TOOLSET%
 
 build:
-  project: ../.build/windows/$(TOOLSET)/projects/rqt/rqt.sln
+  project: ../.build/windows/$(TOOLSET)/rqt/projects/rqt.sln
