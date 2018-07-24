@@ -22,7 +22,7 @@ install:
     - git clone --depth 1 https://github.com/milostosic/rdebug  ..\rdebug
     - git clone --depth 1 https://github.com/milostosic/DIA     ..\DIA
     - git clone --depth 1 https://github.com/milostosic/luaforwindows ..\luaforwindows
-    - ..\build\tools\windows\genie --file=genie\genie.lua %TOOLSET%
+    - ..\build\tools\bin\windows\genie --file=genie\genie.lua %TOOLSET%
 
 build:
   project: ../.build/windows/$(TOOLSET)/rqt/projects/rqt.sln
