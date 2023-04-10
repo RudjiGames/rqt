@@ -2,41 +2,41 @@
 environment:
   matrix:
 
-    - job_name: Windows
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-      configuration: Debug
+   - job_name: Windows
+     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+     configuration: Debug
 
-    - job_name: Windows
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-      configuration: Release
+   - job_name: Windows
+     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+     configuration: Release
 
-    - job_name: Windows
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-      configuration: Retail
+   - job_name: Windows
+     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+     configuration: Retail
 
-    - job_name: Linux
-      APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
-      buildcfg: debug64
+   - job_name: Linux
+     APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
+     buildcfg: debug64
 
-    - job_name: Linux
-      APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
-      buildcfg: release64
+   - job_name: Linux
+     APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
+     buildcfg: release64
 
-    - job_name: Linux
-      APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
-      buildcfg: retail64
+   - job_name: Linux
+     APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
+     buildcfg: retail64
 
-    - job_name: OSX
-      APPVEYOR_BUILD_WORKER_IMAGE: macOS-monterey
-      buildcfg: debug64
+   - job_name: OSX
+     APPVEYOR_BUILD_WORKER_IMAGE: macOS-monterey
+     buildcfg: debug64
 
-    - job_name: OSX
-      APPVEYOR_BUILD_WORKER_IMAGE: macOS-monterey
-      buildcfg: release64
+   - job_name: OSX
+     APPVEYOR_BUILD_WORKER_IMAGE: macOS-monterey
+     buildcfg: release64
 
-    - job_name: OSX
-      APPVEYOR_BUILD_WORKER_IMAGE: macOS-monterey
-      buildcfg: retail64
+   - job_name: OSX
+     APPVEYOR_BUILD_WORKER_IMAGE: macOS-monterey
+     buildcfg: retail64
 
 shallow_clone: true
 
@@ -116,17 +116,14 @@ for:
       - if [ ! -d ../vcpkg ]; then git clone https://github.com/microsoft/vcpkg.git ../vcpkg ; fi
       - "(cd ../vcpkg && git pull && ./bootstrap-vcpkg.sh)"
       - export VCPKG_DIR=`dirname $(pwd)/../vcpkg/vcpkg`
-      - ls $HOME/Qt/
-      - ls $HOME/Qt/6.4/
-      - ls $HOME/Qt/6.4/macos/
       - export QTDIR="$HOME/Qt/6.4/macos"
-      - export PATH="$HOME/Qt/6.4/macos/bin:$HOME/Qt/6.4/macos/libexec:/home/appveyor/Qt/6.4/macos/libexec:$PATH"
+      - export PATH="$HOME/Qt/6.4/macos/bin:$HOME/Qt/6.4/macos/share/qt/libexec:/Users/appveyor/Qt/6.4/macos/libexec:$PATH"
       - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.4/macos/lib/pkgconfig"
       - export QTDIR_GMAKE_x64="$HOME/Qt/6.4/macos"
       - export QTDIR_GMAKE_x86="$HOME/Qt/6.4/macos" 
       - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       - brew update
-      - brew install lua luarocks
+      - brew install lua luarocks qt6
       - sudo luarocks install luafilesystem	--check-lua-versions
       - git clone --depth 1 https://github.com/milostosic/rqt     rqt
       - git clone --depth 1 https://github.com/milostosic/rdebug  rdebug
