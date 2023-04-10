@@ -1,11 +1,9 @@
-rqt
-======
+<img src="https://rudji.com/images/lib/rqt.png"/>
 
-[![Build Status](https://travis-ci.org/milostosic/rqt.svg?branch=master)](https://travis-ci.org/milostosic/rqt)
 [![Build status](https://ci.appveyor.com/api/projects/status/i12r49fgjsfr5v0q?svg=true)](https://ci.appveyor.com/project/milostosic/rqt)
 [![License](https://img.shields.io/badge/license-BSD--2%20clause-blue.svg)](https://github.com/milostosic/rqt/blob/master/LICENSE)
 
-rqt is a collection of custom widgets and common code for Qt based projects.
+**rqt** is a collection of custom widgets and common code for Qt based projects.
 
 Source Code
 ======
@@ -38,7 +36,7 @@ Author
 ======
 
 The author of **rqt** is Milos Tosic  
-[ <img src="https://github.com/milostosic/build/raw/gh-pages/images/twitter.png">](https://twitter.com/milostosic)[ <img src="https://github.com/milostosic/build/raw/gh-pages/images/linkedin.png">](https://www.linkedin.com/in/milostosic/)[ <img src="https://github.com/milostosic/build/raw/gh-pages/images/mail.png">](mailto:milostosic77@gmail.com)  
+[ <img src="https://github.com/milostosic/build/raw/gh-pages/images/twitter.png">](https://twitter.com/milostosic)[ <img src="https://github.com/milostosic/build/raw/gh-pages/images/mail.png">](mailto:milostosic77@gmail.com)  
 
 License (BSD 2-clause)
 ======

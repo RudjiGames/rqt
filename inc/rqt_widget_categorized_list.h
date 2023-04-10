@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------------//
-/// Copyright (c) 2017 Milos Tosic. All Rights Reserved.                   ///
+/// Copyright (c) 2019 Milos Tosic. All Rights Reserved.                   ///
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
@@ -23,7 +23,7 @@ class RQtWidgetCategorizedList : public QWidget
 		QVector<ListCategory*>	m_categories;
 
 	public:
-		RQtWidgetCategorizedList(QWidget* _parent = 0, Qt::WindowFlags _flags = 0);
+		RQtWidgetCategorizedList(QWidget* _parent = 0, Qt::WindowFlags _flags = (Qt::WindowFlags)0);
 		virtual ~RQtWidgetCategorizedList();
 	
 		int addCategory(const QString& _category);

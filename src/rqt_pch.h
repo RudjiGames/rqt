@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------------//
-/// Copyright (c) 2017 Milos Tosic. All Rights Reserved.                   ///
+/// Copyright (c) 2019 Milos Tosic. All Rights Reserved.                   ///
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
@@ -25,6 +25,7 @@
 #include <QtCore/QTranslator>
 #include <QtCore/QVector>
 
+#include <QtGui/QActionGroup>
 #include <QtGui/QDrag>
 #include <QtGui/QDragEnterEvent>
 #include <QtGui/QPainter>
@@ -35,7 +36,6 @@
 #include <QtNetwork/QNetworkReply>
 
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QActionGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QLayout>
 #include <QtWidgets/QMenu>

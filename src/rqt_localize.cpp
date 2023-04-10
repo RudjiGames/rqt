@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------------//
-/// Copyright (c) 2017 Milos Tosic. All Rights Reserved.                   ///
+/// Copyright (c) 2019 Milos Tosic. All Rights Reserved.                   ///
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
@@ -34,18 +34,33 @@ int RQtLocalize::createLanguageMenu(QMenu& _parentMenu)
 	QStringList fileList = dir.entryList(QStringList(m_filePrefix + "*.qm"), QDir::Files, QDir::Name);
 	for (int i=0; i < fileList.count(); ++i)
 	{
-		QTranslator *translator = new QTranslator(0);
+		QTranslator *translator = new QTranslator(this);
 		if (translator->load(m_filePath + "/" + fileList.at(i)))
 		{
-			QString nativeLangName = translator->translate("RQtLocalize", "English", "This must be the native name of the _language of this translation");
-			if (!nativeLangName.isEmpty())
+			QString langcode = fileList.at(i);
+			langcode.remove(0, m_filePrefix.length());
+			langcode.chop(3 /*strlen(".qm")*/);
+
+			QString nativeLangName = QLocale(langcode).nativeLanguageName();
+
+			// HACK: flag and language match
+			if (nativeLangName == "American English")
+				nativeLangName = "English";
+
+			// HACK: Serbian language name not resolved correctly
+			if (nativeLangName == "")
+				nativeLangName = "\xD0\xA1\xD1\x80\xD0\xBF\xD1\x81\xD0\xBA\xD0\xB8";
+
+			if (!langcode.isEmpty())
 			{
-				QAction *langaction = _parentMenu.addAction(nativeLangName);
+				// Ugly hack for a bug in Qt that incorrectly renders QAction items in menu if they have both an icon and are checkable
+				// Seems to do the trick... for now.
+				QString prefix = "";
+				prefix = "      ";
+
+				QAction *langaction = _parentMenu.addAction(prefix + nativeLangName);
 				langaction->setCheckable(true);
 				langaction->setActionGroup(m_actionGroup);
-				QString langcode = fileList.at(i);
-				langcode.remove(0, m_filePrefix.length());
-				langcode.chop(3 /*strlen(".qm")*/);
 				langaction->setData(langcode.toLower());
 				++languagecount;
 

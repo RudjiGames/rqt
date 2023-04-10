@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------------//
-/// Copyright (c) 2017 Milos Tosic. All Rights Reserved.                   ///
+/// Copyright (c) 2019 Milos Tosic. All Rights Reserved.                   ///
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
@@ -20,7 +20,7 @@ static int RESULT_REPORT	= 3;
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #else
-#include <QProcess>
+#include <QtCore/QProcess>
 #endif
 
 static void killCurrentProcces()

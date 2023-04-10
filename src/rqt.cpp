@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------------//
-/// Copyright (c) 2017 Milos Tosic. All Rights Reserved.                   ///
+/// Copyright (c) 2019 Milos Tosic. All Rights Reserved.                   ///
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
@@ -36,10 +36,16 @@ const char* appGetOrganizationDomain()
 	return "github.com/milostosic";
 }
 
+
+AppStyle::Enum g_style = AppStyle::Default;	// global but there can only be one style in an app
+
 void appInit(/*QApplication*/void* _app, AppStyle::Enum _style)
 {
 	((QApplication*)_app)->setOrganizationName(appGetOrganization());
 	((QApplication*)_app)->setOrganizationDomain(appGetOrganizationDomain());
+
+
+	g_style = _style;
 
 	//RQtLocalize
 	rqt::appLoadStyleSheet(_app, _style);
@@ -61,8 +67,6 @@ QString loadFile(const char* _path)
 	file.close();
 	return content;
 }
-
-AppStyle::Enum g_style = AppStyle::Default;	// global but there can only be one style in an app
 
 void appLoadStyleSheet(/*QApplication*/void* _app, AppStyle::Enum _style)
 {
@@ -107,6 +111,7 @@ rtm_string appPreProcessStyleSheet(const rtm_string& _in)
 	switch (g_style)
 	{
 		case AppStyle::RTM: style = loadFile(":/rqt/resources/rtm.qss");
+		                    break;
 		default:
 			RTM_ERROR("Invalid style");
 	};

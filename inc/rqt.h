@@ -1,12 +1,12 @@
 //--------------------------------------------------------------------------//
-/// Copyright (c) 2017 by Milos Tosic. All Rights Reserved.                ///
+/// Copyright (c) 2019 by Milos Tosic. All Rights Reserved.                ///
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
 #ifndef RTM_RQT_H
 #define RTM_RQT_H
 
-struct rtmLibInterface;
+typedef struct _rtmLibInterface rtmLibInterface;
 
 namespace rqt {
 

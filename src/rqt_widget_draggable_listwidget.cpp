@@ -1,5 +1,5 @@
 //--------------------------------------------------------------------------//
-/// Copyright (c) 2017 Milos Tosic. All Rights Reserved.                   ///
+/// Copyright (c) 2019 Milos Tosic. All Rights Reserved.                   ///
 /// License: http://www.opensource.org/licenses/BSD-2-Clause               ///
 //--------------------------------------------------------------------------//
 
@@ -74,7 +74,7 @@ void RQWidgetDraggableListWidget::mouseMoveEvent(QMouseEvent* _event)
 		QPainter painterFontEst(&fontEst);
 		const QFont& fnt = painterFontEst.font();
 		QFontMetrics fm(fnt);
-		int pixelsWide = fm.width(itemHover->text());
+		int pixelsWide = fm.horizontalAdvance(itemHover->text());
 		int pixelsHigh = fm.height();
 
 		pix = QPixmap(pixelsWide*2,pixelsHigh*4);
