@@ -65,6 +65,7 @@ for:
     - set PATH=C:\projects\rqt\luaforwindows\files;%QTDIR_VS2019_x64%\bin;%PATH%
     - echo %PATH%
     - echo %QTDIR_VS2019_x64%
+    - dir %QTDIR_VS2019_x64%
     - dir %QTDIR_VS2019_x64%\bin
     - git clone --depth 1 https://github.com/milostosic/rqt     rqt
     - git clone --depth 1 https://github.com/milostosic/build   build
