@@ -57,14 +57,15 @@ for:
     matrix:
       only:
       - job_name: Windows
-      - QTDIR: C:\Qt\6.4.2\msvc2019_64
+      - QTDIR: C:\Qt\6.4\msvc2019_64
     
     init:
-    - set QTDIR_VS2019_x64=C:\Qt\6.4.2\msvc2019_64
-    - set QTDIR_VS2019_x86=C:\Qt\6.4.2\msvc2019 
-    - set PATH=C:\projects\rqt\luaforwindows\files;%QTDIR_VS2019_x64%\bin;%PATH%
+    - set QTDIR_VS2019_x64=C:\Qt\6.4\msvc2019_64
+    - set QTDIR_VS2019_x86=C:\Qt\6.4\msvc2019 
+    - set PATH=C:\projects\rqt\luaforwindows\files;C:\Qt\6.4\msvc2019_64\bin;%PATH%
     - echo %PATH%
     - echo %QTDIR_VS2019_x64%
+    - echo %QTDIR%
     - dir C:\Qt\6.4.2\msvc2019_64
     - dir C:\Qt\6.4.2\msvc2019_64\bin
     - git clone --depth 1 https://github.com/milostosic/rqt     rqt
