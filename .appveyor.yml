@@ -66,6 +66,10 @@ for:
     - echo %PATH%
     - echo %QTDIR_VS2019_x64%
     - echo %QTDIR%
+    - dir C:\
+    - dir C:\Qt
+    - dir C:\Qt\6.4
+    - dir C:\Qt\6.4.2
     - dir C:\Qt\6.4.2\msvc2019_64
     - dir C:\Qt\6.4.2\msvc2019_64\bin
     - git clone --depth 1 https://github.com/milostosic/rqt     rqt
