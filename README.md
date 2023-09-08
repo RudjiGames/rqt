@@ -1,7 +1,6 @@
 <img src="https://rudji.com/images/lib/rqt.png"/>
 
-[![Build status](https://ci.appveyor.com/api/projects/status/i12r49fgjsfr5v0q?svg=true)](https://ci.appveyor.com/project/milostosic/rqt)
-[![License](https://img.shields.io/badge/license-BSD--2%20clause-blue.svg)](https://github.com/milostosic/rqt/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-BSD--2%20clause-blue.svg)](https://github.com/RudjiGames/rqt/blob/master/LICENSE)
 
 **rqt** is a collection of custom widgets and common code for Qt based projects.
 
@@ -10,7 +9,7 @@ Source Code
 
 You can get the latest source code by cloning it from github:
 
-      git clone https://github.com/milostosic/rqt.git 
+      git clone https://github.com/RudjiGames/rqt.git 
 
 Widgets
 ======
@@ -32,22 +31,16 @@ DIA (Debug Interface Access) SDK - **Windows only**
 
 Lua runtime is required to support Qt projects using [build](https://github.com/milostosic/build)
 
-Author
-======
-
-The author of **rqt** is Milos Tosic  
-[ <img src="https://github.com/milostosic/build/raw/gh-pages/images/twitter.png">](https://twitter.com/milostosic)[ <img src="https://github.com/milostosic/build/raw/gh-pages/images/mail.png">](mailto:milostosic77@gmail.com)  
-
 License (BSD 2-clause)
 ======
 
 <a href="http://opensource.org/licenses/BSD-2-Clause" target="_blank">
-<img align="right" src="http://opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png">
+<img align="right" src="https://opensource.org/wp-content/uploads/2022/10/osi-badge-dark.svg" width="100" height="137">
 </a>
 
-	Copyright (c) 2017 Milos Tosic. All rights reserved.
+	Copyright 2023 Milos Tosic. All rights reserved.
 	
-	https://github.com/milostosic/rqt
+	https://github.com/RudjiGames/rdebug
 	
 	Redistribution and use in source and binary forms, with or without
 	modification, are permitted provided that the following conditions are met:
