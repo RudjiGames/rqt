@@ -1,4 +1,4 @@
-<img src="https://rudji.com/images/lib/rqt.png"/>
+<img src="https://www.rudji.com/images/lib/rqt.png"/>
 
 [![License](https://img.shields.io/badge/license-BSD--2%20clause-blue.svg)](https://github.com/RudjiGames/rqt/blob/master/LICENSE)
 
