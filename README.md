@@ -4,6 +4,10 @@
 
 **rqt** is a collection of custom widgets and common code for Qt based projects.
 
+---
+
+This repository is currently only used by [**MTuner**](https://github.com/RudjiGames/MTuner) project.
+
 Source Code
 ======
 
@@ -15,21 +19,6 @@ Widgets
 ======
 
 ![Assert dialog](https://github.com/milostosic/rqt/blob/master/resources/rqt_assert.png)
-
-Dependencies
-======
-
-Dependencies can be obtained by cloning the following repositories:
-
-	git clone https://github.com/milostosic/build.git
-	git clone https://github.com/milostosic/rbase.git
-	git clone https://github.com/milostosic/rdebug.git
-
-DIA (Debug Interface Access) SDK - **Windows only**
-
-	git clone https://github.com/milostosic/DIA.git 
-
-Lua runtime is required to support Qt projects using [build](https://github.com/milostosic/build)
 
 License (BSD 2-clause)
 ======
