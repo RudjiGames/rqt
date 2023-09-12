@@ -63,11 +63,11 @@ for:
     - set QTDIR_VS2019_x64=C:\Qt\6.4\msvc2019_64
     - set QTDIR_VS2019_x86=C:\Qt\6.4\msvc2019 
     - set PATH=C:\projects\rqt\luaforwindows\files;C:\Qt\6.4\msvc2019_64\bin;%PATH%
-    - git clone --depth 1 https://github.com/milostosic/rqt     rqt
-    - git clone --depth 1 https://github.com/milostosic/build   build
-    - git clone --depth 1 https://github.com/milostosic/rbase   rbase
-    - git clone --depth 1 https://github.com/milostosic/rdebug  rdebug
-    - git clone --depth 1 https://github.com/milostosic/DIA     DIA
+    - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
+    - git clone --depth 1 https://github.com/RudjiGames/build   build
+    - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
+    - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
+    - git clone --depth 1 https://github.com/RudjiGames/DIA     DIA
     - git clone --depth 1 https://github.com/rjpcomputing/luaforwindows luaforwindows
 
     install:
@@ -92,10 +92,10 @@ for:
       - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.4/gcc_64/lib/pkgconfig"
       - export QTDIR_GMAKE_x64="$HOME/Qt/6.4/gcc_64"
       - export QTDIR_GMAKE_x86="$HOME/Qt/6.4/gcc_64" 
-      - git clone --depth 1 https://github.com/milostosic/rqt     rqt
-      - git clone --depth 1 https://github.com/milostosic/build   build
-      - git clone --depth 1 https://github.com/milostosic/rbase   rbase
-      - git clone --depth 1 https://github.com/milostosic/rdebug  rdebug
+      - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
+      - git clone --depth 1 https://github.com/RudjiGames/build   build
+      - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
+      - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
       - git clone --depth 1 https://github.com/bkaradzic/GENie    GENie		# build GENie from source: `GLIBC_2.29' not found
       - cd GENie && make && cd ..
 
@@ -128,10 +128,10 @@ for:
       - brew update
       - brew install lua luarocks qt6
       - sudo luarocks install luafilesystem	--check-lua-versions
-      - git clone --depth 1 https://github.com/milostosic/rqt     rqt
-      - git clone --depth 1 https://github.com/milostosic/rdebug  rdebug
-      - git clone --depth 1 https://github.com/milostosic/build   build
-      - git clone --depth 1 https://github.com/milostosic/rbase   rbase
+      - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
+      - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
+      - git clone --depth 1 https://github.com/RudjiGames/build   build
+      - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
     
     install:
       - ./build/tools/bin/darwin/genie --file=rqt/genie/genie.lua --gcc=osx gmake
