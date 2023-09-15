@@ -1,5 +1,6 @@
 <img src="https://www.rudji.com/images/lib/rqt.png"/>
 
+[![Build status](https://ci.appveyor.com/api/projects/status/i27a8sx7x48pp4w9?svg=true)](https://ci.appveyor.com/project/milostosic/rqt-i9oly)
 [![License](https://img.shields.io/badge/license-BSD--2%20clause-blue.svg)](https://github.com/RudjiGames/rqt/blob/master/LICENSE)
 
 **rqt** is a collection of custom widgets and common code for Qt based projects.
