@@ -62,15 +62,13 @@ for:
     init:
     - set QTDIR_VS2019_x64=C:\Qt\6.4\msvc2019_64
     - set QTDIR_VS2019_x86=C:\Qt\6.4\msvc2019 
-    - set PATH=C:\projects\rqt\luaforwindows\files;C:\Qt\6.4\msvc2019_64\bin;%PATH%
+    - set PATH=%cd%\luaforwindows\files;C:\Qt\6.4\msvc2019_64\bin;%PATH%
     - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
     - git clone --depth 1 https://github.com/RudjiGames/build   build
     - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
     - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
     - git clone --depth 1 https://github.com/RudjiGames/DIA     DIA
     - git clone --depth 1 https://github.com/rjpcomputing/luaforwindows luaforwindows
-    - dir
-    - luaforwindows
 
     install:
       - build\tools\bin\windows\genie.exe --file=rqt\genie\genie.lua vs2019
