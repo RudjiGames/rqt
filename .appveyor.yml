@@ -69,6 +69,8 @@ for:
     - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
     - git clone --depth 1 https://github.com/RudjiGames/DIA     DIA
     - git clone --depth 1 https://github.com/rjpcomputing/luaforwindows luaforwindows
+    - dir
+    - luaforwindows
 
     install:
       - build\tools\bin\windows\genie.exe --file=rqt\genie\genie.lua vs2019
