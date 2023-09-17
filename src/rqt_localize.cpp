@@ -13,7 +13,7 @@ RQtLocalize::RQtLocalize(QObject* _parent, const char* _translationFilePrefix)
 	m_actionGroup->setExclusive(true);
 	connect(m_actionGroup, SIGNAL(triggered(QAction*)) , this, SLOT(languageActionTriggered(QAction*)));
 
-	m_filePath = qApp->applicationDirPath() + "/translation";
+	m_filePath = qApp->applicationDirPath() + QString("/translation");
 	m_filePrefix = _translationFilePrefix;
 }
 
@@ -31,11 +31,11 @@ int RQtLocalize::createLanguageMenu(QMenu& _parentMenu)
 	dir.cd(m_filePath);
 	if (!dir.exists()) return languagecount;
   
-	QStringList fileList = dir.entryList(QStringList(m_filePrefix + "*.qm"), QDir::Files, QDir::Name);
+	QStringList fileList = dir.entryList(QStringList(m_filePrefix + QString("*.qm")), QDir::Files, QDir::Name);
 	for (int i=0; i < fileList.count(); ++i)
 	{
 		QTranslator *translator = new QTranslator(this);
-		if (translator->load(m_filePath + "/" + fileList.at(i)))
+		if (translator->load(m_filePath + QString("/") + fileList.at(i)))
 		{
 			QString langcode = fileList.at(i);
 			langcode.remove(0, m_filePrefix.length());
@@ -64,7 +64,7 @@ int RQtLocalize::createLanguageMenu(QMenu& _parentMenu)
 				langaction->setData(langcode.toLower());
 				++languagecount;
 
-				QString iconFile = ":/rqt/resources/images/flags/" + langcode + ".png";
+				QString iconFile = QString(":/rqt/resources/images/flags/") + langcode + QString(".png");
 				if (QFile::exists(iconFile))
 				{
 					QPixmap pm(iconFile);
@@ -107,7 +107,7 @@ bool RQtLocalize::setLanguage(const QString& _language)
 	int installcount = 0;
 
 	QTranslator *translator = new QTranslator(this);
-	if (translator->load(m_filePath + "/" + m_filePrefix + langStr.toLower() + ".qm"))
+	if (translator->load(m_filePath + QString("/") + m_filePrefix + langStr.toLower() + QString(".qm")))
 	{
 		qApp->installTranslator(translator);
 		m_translators.append(translator);
