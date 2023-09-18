@@ -116,21 +116,20 @@ for:
       - job_name: OSX
 
     init:
-      - if [ ! -d ../vcpkg ]; then git clone https://github.com/microsoft/vcpkg.git ../vcpkg ; fi
-      - "(cd ../vcpkg && git pull && ./bootstrap-vcpkg.sh)"
-      - export VCPKG_DIR=`dirname $(pwd)/../vcpkg/vcpkg`
-      - export QTDIR="$HOME/Qt/6.4/macos"
-      - export PATH="$HOME/Qt/6.4/macos/bin:$HOME/Qt/6.4/macos/share/qt/libexec:/Users/appveyor/Qt/6.4/macos/libexec:$PATH"
-      - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.4/macos/lib/pkgconfig"
-      - export QTDIR_GMAKE_x64="$HOME/Qt/6.4/macos"
-      - export QTDIR_GMAKE_x86="$HOME/Qt/6.4/macos" 
-      - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      - brew update
-      - brew install lua qt6
-      - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
-      - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
-      - git clone --depth 1 https://github.com/RudjiGames/build   build
-      - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
+    - if [ ! -d ../vcpkg ]; then git clone https://github.com/microsoft/vcpkg.git ../vcpkg ; fi
+    - "(cd ../vcpkg && git pull && ./bootstrap-vcpkg.sh)"
+    - export VCPKG_DIR=`dirname $(pwd)/../vcpkg/vcpkg`
+    - export QTDIR="/usr/local/Cellar/qt/6.5.1_3/" 
+    - export PATH="/usr/local/Cellar/qt/6.5.1_3/bin:/usr/local/Cellar/qt/6.5.1_3/share/qt/libexec:$PATH"
+    - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/Cellar/qt/6.5.1_3/lib/pkgconfig"
+    - export QTDIR_GMAKE_x64="/usr/local/Cellar/qt/6.5.1_3/"
+    - export QTDIR_GMAKE_x86="/usr/local/Cellar/qt/6.5.1_3/" 
+    - brew update
+    - brew install lua qt6
+    - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
+    - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
+    - git clone --depth 1 https://github.com/RudjiGames/build   build
+    - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
     
     install:
       - ./build/tools/bin/darwin/genie --file=rqt/genie/genie.lua --gcc=osx gmake
@@ -138,3 +137,5 @@ for:
     build_script:
       - cd ./.build/osx/clang/rqt/projects/
       - make config=${buildcfg}
+
+      
