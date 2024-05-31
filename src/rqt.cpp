@@ -84,7 +84,7 @@ void appLoadStyleSheet(/*QApplication*/void* _app, AppStyle::Enum _style)
 	
 	QString stylesheet	= style + loadFile(":/rqt/resources/stylesheet.qss");
 
-	rtm_string src = stylesheet.toLatin1().data();
+	std::string src = stylesheet.toLatin1().data();
 	
 	Preprocessor pp(src);
 #ifdef Q_OS_WIN32
@@ -102,7 +102,7 @@ void appLoadStyleSheet(/*QApplication*/void* _app, AppStyle::Enum _style)
 	((QApplication*)_app)->setStyle(new NoFocusProxyStyle);
 }
 
-rtm_string appPreProcessStyleSheet(const rtm_string& _in)
+std::string appPreProcessStyleSheet(const std::string& _in)
 {
 	if (g_style == rqt::AppStyle::Default)
 		return "";
@@ -118,7 +118,7 @@ rtm_string appPreProcessStyleSheet(const rtm_string& _in)
 	
 	QString stylesheet	= style + loadFile(":/rqt/resources/stylesheet.qss");
 
-	rtm_string src = stylesheet.toLatin1().data();
+	std::string src = stylesheet.toLatin1().data();
 	
 	Preprocessor pp(src);
 #ifdef Q_OS_WIN32
@@ -131,7 +131,7 @@ rtm_string appPreProcessStyleSheet(const rtm_string& _in)
 	pp.addDefine("__linux__");
 #endif
 	pp.parse();
-	rtm_string out = _in;
+	std::string out = _in;
 	pp.process(out);
 	return out;
 }

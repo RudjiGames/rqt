@@ -8,10 +8,10 @@
 
 namespace rqt {
 
-void split(rtm_vector<rtm_string>& _tokens, const rtm_string& _text, char _sep)
+void split(std::vector<std::string>& _tokens, const std::string& _text, char _sep)
 {
 	size_t start = 0, end = 0;
-	while ((end = _text.find(_sep, start)) != rtm_string::npos)
+	while ((end = _text.find(_sep, start)) != std::string::npos)
 	{
 		_tokens.push_back(_text.substr(start, end - start));
 		start = end + 1;
@@ -19,14 +19,14 @@ void split(rtm_vector<rtm_string>& _tokens, const rtm_string& _text, char _sep)
 	_tokens.push_back(_text.substr(start));
 }
 
-Preprocessor::Preprocessor(const rtm_string& _text)
+Preprocessor::Preprocessor(const std::string& _text)
 {
 	split(m_input, _text, '\n');
 	m_inComment = false;
 	m_enabled.push_back(true);
 }
 
-static bool isEnabled(const rtm_vector<bool>& _enabled)
+static bool isEnabled(const std::vector<bool>& _enabled)
 {
 	const size_t size = _enabled.size();
 	if (size > 0)
@@ -42,7 +42,7 @@ void Preprocessor::parse()
 	size_t idx = 0;
 	while (idx<lines)
 	{
-		rtm_string& line = m_input[idx++];
+		std::string& line = m_input[idx++];
 
 		LineType::Enum dt = LineTypeType(line);
 		if ((dt == LineType::None) && isEnabled(m_enabled))
@@ -65,7 +65,7 @@ bool strStartsWith(const char* _str, const char* _start, const char** _dst)
 	return false;
 }
 
-Preprocessor::LineType::Enum Preprocessor::LineTypeType(const rtm_string& _str)
+Preprocessor::LineType::Enum Preprocessor::LineTypeType(const std::string& _str)
 {
 	const char* src = _str.c_str();
 	while ((*src == ' ') || (*src == '\t')) ++src;
@@ -115,7 +115,7 @@ Preprocessor::LineType::Enum Preprocessor::LineTypeType(const rtm_string& _str)
 	return LineType::None;
 }
 
-void Preprocessor::process(rtm_string& _str)
+void Preprocessor::process(std::string& _str)
 {
 	const size_t numLineTypes = m_defines.size();
 	for (size_t i=0; i<numLineTypes; ++i)
@@ -136,8 +136,8 @@ void Preprocessor::addDefine(const char* _define)
 	if (!isEnabled(m_enabled))
 		return;
 
-	rtm_string define;
-	rtm_string value;
+	std::string define;
+	std::string value;
 
 	while ((*_define != ' ') && (*_define != '\t'))
 	{

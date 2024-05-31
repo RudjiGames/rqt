@@ -10,7 +10,7 @@
 #include <rqt/src/rqt_widget_draggable_listwidget.h>
 
 namespace rqt {
-rtm_string appPreProcessStyleSheet(const rtm_string& _in);
+std::string appPreProcessStyleSheet(const std::string& _in);
 }
 
 // NB: RQT_DEFAULT_BACKGROUND_COLOR and RQT_DEFAULT_TEXT_COLOR must match the defines in default.qss

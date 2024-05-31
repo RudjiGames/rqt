@@ -40,14 +40,14 @@ class RQThreadMover : public QObject
 {
 public:
 	RQtWidgetAssert*	m_assert;
-	rtm_string		m_file;
-	rtm_string		m_msg;
-	int				m_line;
-	int				m_result;
-	uint32_t		m_stackTraceSize;
-	uint64_t		m_tid;
-	QSemaphore		m_sem;
-	void*			m_stackTrace[128];
+	std::string			m_file;
+	std::string			m_msg;
+	int					m_line;
+	int					m_result;
+	uint32_t			m_stackTraceSize;
+	uint64_t			m_tid;
+	QSemaphore			m_sem;
+	void*				m_stackTrace[128];
 
 	virtual bool event(QEvent* _ev)
 	{
