@@ -3,17 +3,17 @@ environment:
   matrix:
 
    - job_name: Windows
-     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
      configuration: Debug
      platform: x64
 
    - job_name: Windows
-     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
      configuration: Release
      platform: x64
 
    - job_name: Windows
-     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
      configuration: Retail
      platform: x64
 
@@ -71,9 +71,9 @@ for:
     - git clone --depth 1 https://github.com/rjpcomputing/luaforwindows luaforwindows
 
     install:
-      - build\tools\bin\windows\genie.exe --file=rqt\genie\genie.lua vs2019
+      - build\tools\bin\windows\genie.exe --file=rqt\genie\genie.lua vs2022
 
-    build: ../.build/windows/vs2019/rqt/projects/rqt.sln
+    build: ../.build/windows/vs2022/rqt/projects/rqt.sln
 
 # ======================================
 # Linux
@@ -103,7 +103,7 @@ for:
 #      - ./GENie/bin/linux/genie --file=rqt/genie/genie.lua --gcc=linux-gcc gmake
 #  
 #    build_script:
-#      - cd ./.build/linux/gcc/rqt/projects/
+#      - cd ./.build/linux/linux-gcc/rqt/projects/
 #      - make config=${buildcfg}
 
 # ======================================
@@ -130,12 +130,12 @@ for:
 #    - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
 #    - git clone --depth 1 https://github.com/RudjiGames/build   build
 #    - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
+#    - git clone --depth 1 https://github.com/bkaradzic/GENie GENie  # build GENie from source: we don't know the target CPU, can't use ARM binary from 'build'
+#    - cd GENie && make && cd ..
 #    
 #    install:
-#      - ./build/tools/bin/darwin/genie --file=rqt/genie/genie.lua --gcc=osx gmake
+#      - ./GENie/bin/darwin/genie --file=rqt/genie/genie.lua --gcc=osx-x64 gmake
 #    
 #    build_script:
 #      - cd ./.build/osx/clang/rqt/projects/
 #      - make config=${buildcfg}
-
-      
