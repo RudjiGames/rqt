@@ -57,12 +57,12 @@ for:
     matrix:
       only:
       - job_name: Windows
-      - QTDIR: C:\Qt\6.5.3\msvc2019_64
+      - QTDIR: C:\Qt\6.5.3\msvc2022_64
     
     init:
-    - set QTDIR_VS2019_x64=C:\Qt\6.5.3\msvc2019_64
-    - set QTDIR_VS2019_x86=C:\Qt\6.5.3\msvc2019_64
-    - set PATH=%cd%\luaforwindows\files;C:\Qt\6.5.3\msvc2019_64\bin;%PATH%
+    - set QTDIR_VS2022_x64=C:\Qt\6.5.3\msvc2022_64
+    - set QTDIR_VS2022_x86=C:\Qt\6.5.3\msvc2022_64
+    - set PATH=%cd%\luaforwindows\files;C:\Qt\6.5.3\msvc2022_64\bin;%PATH%
     - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
     - git clone --depth 1 https://github.com/RudjiGames/build   build
     - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
