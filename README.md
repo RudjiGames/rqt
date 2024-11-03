@@ -19,7 +19,7 @@ You can get the latest source code by cloning it from github:
 Widgets
 ======
 
-![Assert dialog](https://github.com/milostosic/rqt/blob/master/resources/rqt_assert.png)
+<img src="https://github.com/milostosic/rqt/blob/master/resources/rqt_assert.png" height="333">
 
 License (BSD 2-clause)
 ======
