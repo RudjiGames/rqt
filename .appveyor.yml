@@ -29,17 +29,17 @@ environment:
 #     APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
 #     buildcfg: retail64
 
-#   - job_name: OSX
-#     APPVEYOR_BUILD_WORKER_IMAGE: macOS-monterey
-#     buildcfg: debug64
-#
-#   - job_name: OSX
-#     APPVEYOR_BUILD_WORKER_IMAGE: macOS-monterey
-#     buildcfg: release64
-#
-#   - job_name: OSX
-#     APPVEYOR_BUILD_WORKER_IMAGE: macOS-monterey
-#     buildcfg: retail64
+   - job_name: OSX
+     APPVEYOR_BUILD_WORKER_IMAGE: macOS-monterey
+     buildcfg: debug64
+
+   - job_name: OSX
+     APPVEYOR_BUILD_WORKER_IMAGE: macOS-monterey
+     buildcfg: release64
+
+   - job_name: OSX
+     APPVEYOR_BUILD_WORKER_IMAGE: macOS-monterey
+     buildcfg: retail64
 
 shallow_clone: true
 
@@ -116,9 +116,6 @@ for:
       - job_name: OSX
 
     init:
-    - if [ ! -d ../vcpkg ]; then git clone https://github.com/microsoft/vcpkg.git ../vcpkg ; fi
-    - "(cd ../vcpkg && git pull && ./bootstrap-vcpkg.sh)"
-    - export VCPKG_DIR=`dirname $(pwd)/../vcpkg/vcpkg`
     - export QTDIR="$HOME/Qt/6.5.3/macos/" 
     - export PATH="$HOME/Qt/6.5.3/macos/bin:$HOME/Qt/6.5.3/macos/share/qt/libexec:$PATH"
     - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.5.3/macos/bin/lib/pkgconfig"
