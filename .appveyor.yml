@@ -118,7 +118,7 @@ for:
     - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.5.3/macos/bin/lib/pkgconfig"
     - export QTDIR="$HOME/Qt/6.5.3/macos/bin"
     - brew update
-    - brew install --debug lua qt6
+    - brew install cmake lua qt6
     - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
     - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
     - git clone --depth 1 https://github.com/RudjiGames/build   build
