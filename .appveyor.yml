@@ -114,7 +114,7 @@ for:
 
     init:
     - export QTDIR="$HOME/Qt/6.5.3/macos/" 
-    - export PATH="$HOME/Qt/6.5.3/macos/bin:$HOME/Qt/6.5.3/macos/share/qt/libexec:$PATH"
+    - export PATH="$HOME/Qt/6.5.3/macos/bin:$HOME/Qt/6.5.3/macos/share/qt/libexec:/usr/local/opt/qt/bin:$PATH"
     - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.5.3/macos/bin/lib/pkgconfig"
     - export QTDIR="$HOME/Qt/6.5.3/macos/bin"
     - brew update
