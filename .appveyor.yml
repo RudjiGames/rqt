@@ -113,8 +113,6 @@ for:
       - job_name: OSX
 
     init:
-    - ls $HOME/Qt/6.5.3/macos/bin
-    - ls $HOME/Qt/6.5.3/macos/share/
     - export QTDIR="$HOME/Qt/6.5.3/macos/" 
     - export PATH="$HOME/Qt/6.5.3/macos/bin:$HOME/Qt/6.5.3/macos/share/qt/libexec:$PATH"
     - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.5.3/macos/bin/lib/pkgconfig"
@@ -122,6 +120,9 @@ for:
     - brew update
     - export HOMEBREW_NO_INSTALL_CLEANUP=true
     - brew install --force lua qt6
+    - ls $HOME/Qt/6.5.3/macos/bin
+    - ls $HOME/Qt/6.5.3/macos/share/
+    - type -a moc
     - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
     - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
     - git clone --depth 1 https://github.com/RudjiGames/build   build
