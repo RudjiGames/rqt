@@ -113,6 +113,7 @@ for:
       - job_name: OSX
 
     init:
+    - ls $HOME/Qt/6.5.3/macos/share/qt/libexec
     - export QTDIR="$HOME/Qt/6.5.3/macos/" 
     - export PATH="$HOME/Qt/6.5.3/macos/bin:$HOME/Qt/6.5.3/macos/share/qt/libexec:/usr/local/opt/qt/bin:$PATH"
     - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.5.3/macos/bin/lib/pkgconfig"
