@@ -118,7 +118,7 @@ for:
     - which moc
     - brew update
     - export HOMEBREW_NO_INSTALL_CLEANUP=true
-    - brew install --force lua qt6
+    - brew install --force lua 
     - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
     - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
     - git clone --depth 1 https://github.com/RudjiGames/build   build
