@@ -115,7 +115,7 @@ for:
     - export QTDIR="$HOME/Qt/6.5.3/macos/" 
     - export PATH="$HOME/Qt/6.5.3/macos/bin:$HOME/Qt/6.5.3/macos/libexec:$PATH"
     - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.5.3/macos/lib/pkgconfig"
-    - ls --all --recursive /Users/appveyor/Qt/6.5.3/macos/
+    - ls --recursive /Users/appveyor/Qt/6.5.3/macos/
     - ls /Users/appveyor/Qt/6.5.3/macos/include
     - ls /Users/appveyor/Qt/6.5.3/macos/libexec
     - brew update
