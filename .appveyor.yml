@@ -112,19 +112,17 @@ for:
       - job_name: OSX
 
     init:
-    - export QTDIR="$HOME/Qt/6.5.3/macos/" 
-    - export PATH="$HOME/Qt/6.5.3/macos/bin:$HOME/Qt/6.5.3/macos/libexec:$PATH"
-    - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.5.3/macos/lib/pkgconfig"
-    - ls $HOME/Qt/6.5.3/macos/lib
-    - brew update
-    - export HOMEBREW_NO_INSTALL_CLEANUP=true
-    - brew install --force lua
-    - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
-    - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
-    - git clone --depth 1 https://github.com/RudjiGames/build   build
-    - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
-    - git clone --depth 1 https://github.com/bkaradzic/GENie GENie  # build GENie from source: we don't know the target CPU, can't use ARM binary from 'build'
-    - cd GENie && make && cd ..
+      - export QTDIR="$HOME/Qt/6.5.3/macos/" 
+      - export PATH="$HOME/Qt/6.5.3/macos/bin:$HOME/Qt/6.5.3/macos/libexec:$PATH"
+      - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.5.3/macos/lib/pkgconfig"
+      - brew update
+      - brew install --force lua
+      - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
+      - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
+      - git clone --depth 1 https://github.com/RudjiGames/build   build
+      - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
+      - git clone --depth 1 https://github.com/bkaradzic/GENie GENie  # build GENie from source: we don't know the target CPU, can't use ARM binary from 'build'
+      - cd GENie && make && cd ..
     
     install:
       - ./GENie/bin/darwin/genie --file=rqt/genie/genie.lua --gcc=osx-x64 gmake
