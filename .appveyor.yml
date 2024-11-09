@@ -2,32 +2,32 @@
 environment:
   matrix:
 
-   - job_name: Windows
-     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
-     configuration: Debug
-     platform: x64
+#   - job_name: Windows
+#     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+#     configuration: Debug
+#     platform: x64
 
-   - job_name: Windows
-     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
-     configuration: Release
-     platform: x64
+#   - job_name: Windows
+#     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+#     configuration: Release
+#     platform: x64
 
-   - job_name: Windows
-     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
-     configuration: Retail
-     platform: x64
+#   - job_name: Windows
+#     APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2022
+#     configuration: Retail
+#     platform: x64
 
-   - job_name: Linux
-     APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
-     buildcfg: debug64
+#   - job_name: Linux
+#     APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
+#     buildcfg: debug64
 
-   - job_name: Linux
-     APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
-     buildcfg: release64
+#   - job_name: Linux
+#     APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
+#     buildcfg: release64
 
-   - job_name: Linux
-     APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
-     buildcfg: retail64
+#   - job_name: Linux
+#     APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
+#     buildcfg: retail64
 
    - job_name: OSX
      APPVEYOR_BUILD_WORKER_IMAGE: macOS-sonoma
@@ -117,7 +117,7 @@ for:
       - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.5.3/macos/lib/pkgconfig"
       - curl -L -R -O https://www.lua.org/ftp/lua-5.4.7.tar.gz
       - tar zxf lua-5.4.7.tar.gz
-      - cd lua-5.4.7 && make all test && make install && cd ..
+      - cd lua-5.4.7 && sudo make all test && sudo make install && cd ..
       - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
       - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
       - git clone --depth 1 https://github.com/RudjiGames/build   build
