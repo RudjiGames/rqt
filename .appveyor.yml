@@ -63,6 +63,7 @@ for:
     - set QTDIR=C:\Qt\6.5.3\msvc2019_64
     - set PATH=%cd%\luaforwindows\files;C:\Qt\6.5.3\msvc2019_64\bin;%PATH%
     - choco install lua
+    - refreshenv
     - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
     - git clone --depth 1 https://github.com/RudjiGames/build   build
     - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
