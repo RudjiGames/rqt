@@ -62,12 +62,12 @@ for:
     init:
     - set QTDIR=C:\Qt\6.5.3\msvc2019_64
     - set PATH=%cd%\luaforwindows\files;C:\Qt\6.5.3\msvc2019_64\bin;%PATH%
+    - choco install lua
     - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
     - git clone --depth 1 https://github.com/RudjiGames/build   build
     - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
     - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
     - git clone --depth 1 https://github.com/RudjiGames/DIA     DIA
-    - git clone --depth 1 https://github.com/rjpcomputing/luaforwindows luaforwindows
 
     install:
       - build\tools\bin\windows\genie.exe --file=rqt\genie\genie.lua vs2022
