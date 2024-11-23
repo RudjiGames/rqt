@@ -25,13 +25,14 @@ RQtLocalize::~RQtLocalize()
 
 int RQtLocalize::createLanguageMenu(QMenu& _parentMenu)
 {
-	QDir dir;
+	QDir dir(m_filePath);
+	if (!dir.exists())
+		return 0;
 
 	int languagecount = 0;
-	dir.cd(m_filePath);
-	if (!dir.exists()) return languagecount;
-  
-	QStringList fileList = dir.entryList(QStringList(m_filePrefix + QString("*.qm")), QDir::Files, QDir::Name);
+
+	QStringList list(m_filePrefix + QString("*.qm"));
+	QStringList fileList = dir.entryList(list, QDir::Files, QDir::Name);
 	for (int i=0; i < fileList.count(); ++i)
 	{
 		QTranslator *translator = new QTranslator(this);
@@ -39,7 +40,7 @@ int RQtLocalize::createLanguageMenu(QMenu& _parentMenu)
 		{
 			QString langcode = fileList.at(i);
 			langcode.remove(0, m_filePrefix.length());
-			langcode.chop(3 /*strlen(".qm")*/);
+			langcode.chop(3); // strlen(".qm")
 
 			QString nativeLangName = QLocale(langcode).nativeLanguageName();
 
@@ -53,15 +54,10 @@ int RQtLocalize::createLanguageMenu(QMenu& _parentMenu)
 
 			if (!langcode.isEmpty())
 			{
-				// Ugly hack for a bug in Qt that incorrectly renders QAction items in menu if they have both an icon and are checkable
-				// Seems to do the trick... for now.
-				QString prefix = "";
-				prefix = "      ";
-
-				QAction *langaction = _parentMenu.addAction(prefix + nativeLangName);
+				QAction *langaction = _parentMenu.addAction(nativeLangName);
 				langaction->setCheckable(true);
-				langaction->setActionGroup(m_actionGroup);
 				langaction->setData(langcode.toLower());
+				langaction->setActionGroup(m_actionGroup);
 				++languagecount;
 
 				QString iconFile = QString(":/rqt/resources/images/flags/") + langcode + QString(".png");

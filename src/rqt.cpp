@@ -28,14 +28,13 @@ namespace rqt {
 
 const char* appGetOrganization()
 {
-	return "rtm";
+	return "Rudji Games";
 }
 
 const char* appGetOrganizationDomain()
 {
-	return "github.com/milostosic";
+	return "rudji.com";
 }
-
 
 AppStyle::Enum g_style = AppStyle::Default;	// global but there can only be one style in an app
 
