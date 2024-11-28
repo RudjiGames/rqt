@@ -5,8 +5,6 @@
 
 #include <rqt_pch.h>
 #include <rqt/inc/rqt.h>
-#include <rqt/src/rqt_preprocessor.h>
-#include <rqt/inc/rqt_widget_categorized_list.h>
 #include <rqt/src/rqt_widget_draggable_listwidget.h>
 
 namespace rqt {

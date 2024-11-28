@@ -17,7 +17,6 @@ RQtFileDownloader::RQtFileDownloader(QUrl _url, QObject* _parent) :
 void RQtFileDownloader::fileDownloaded(QNetworkReply* _reply)
 {
     m_downloadedData = _reply->readAll();
-    //emit a signal
     _reply->deleteLater();
     emit downloaded();
 }

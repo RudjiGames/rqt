@@ -8,7 +8,6 @@
 #include <rqt/.qt/qt_ui/rqt_widget_assert_ui.h>
 
 #include <rdebug/inc/rdebug.h>
-
 #include <rbase/inc/thread.h>
 #include <rbase/inc/stacktrace.h>
 
