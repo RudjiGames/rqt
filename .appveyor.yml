@@ -74,7 +74,7 @@ for:
       - build\tools\bin\windows\genie.exe --file=rqt\genie\genie.lua vs2022
 
     build: 
-      project: rqt\.build\windows\vs2022\rqt\projects\rqt.sln
+      project: .build\windows\vs2022\rqt\projects\rqt.sln
 
 # ======================================
 # Linux
