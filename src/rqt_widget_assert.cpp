@@ -160,7 +160,7 @@ void RQtErrorHandler::fatal(const char* _file, int _line, const char* _message)
 	mvr->m_msg = _message;
 	mvr->m_line = _line;
 	mvr->m_stackTraceSize = rtm::getStackTrace(mvr->m_stackTrace, 128, 3);
-	mvr->m_tid = rtm::Thread::getThreadID();
+	mvr->m_tid = rtm::threadGetID();
 
 	QThread* appThread = QApplication::instance()->thread();
 	bool inAppThread = (mvr->thread() == appThread);
