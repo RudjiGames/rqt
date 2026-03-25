@@ -65,16 +65,16 @@ for:
     - copy %cd%\luaforwindows\files\lua5.1.exe %cd%\luaforwindows\files\lua.exe
     - set PATH=%cd%\luaforwindows\files;C:\Qt\6.5.3\msvc2019_64\bin;%PATH%
     - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
-    - git clone --depth 1 https://github.com/RudjiGames/build   build
+    - git clone --depth 1 https://github.com/RudjiGames/zidar   zidar
     - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
     - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
     - git clone --depth 1 https://github.com/RudjiGames/DIA     DIA
 
     install:
-      - build\tools\bin\windows\genie.exe --file=rqt\genie\genie.lua vs2022
+      - zidar\tools\bin\windows\genie.exe --file=rqt\scripts\genie.lua vs2022
 
     build: 
-      project: .build\windows\vs2022\rqt\projects\rqt.sln
+      project: .zidar\windows\vs2022\rqt\projects\rqt.sln
 
 # ======================================
 # Linux
@@ -91,17 +91,17 @@ for:
       - export PATH="$HOME/Qt/6.5.3/gcc_64/bin:$HOME/Qt/6.5.3/gcc_64/libexec:/home/appveyor/Qt/6.5.3/gcc_64/libexec:$PATH"
       - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.5.3/gcc_64/lib/pkgconfig"
       - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
-      - git clone --depth 1 https://github.com/RudjiGames/build   build
+      - git clone --depth 1 https://github.com/RudjiGames/zidar   zidar
       - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
       - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
       - git clone --depth 1 https://github.com/bkaradzic/GENie    GENie		# build GENie from source: `GLIBC_2.29' not found
       - cd GENie && make && cd ..
 
     install:
-      - ./GENie/bin/linux/genie --file=rqt/genie/genie.lua --gcc=linux-gcc gmake
+      - ./GENie/bin/linux/genie --file=rqt/scripts/genie.lua --gcc=linux-gcc gmake
   
     build_script:
-      - cd ./.build/linux/linux-gcc/rqt/projects/
+      - cd ./.zidar/linux/linux-gcc/rqt/projects/
       - make config=${buildcfg}
 
 # ======================================
@@ -122,14 +122,14 @@ for:
       - cd lua-5.4.7 && sudo make all test && sudo make install && cd ..
       - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
       - git clone --depth 1 https://github.com/RudjiGames/rdebug  rdebug
-      - git clone --depth 1 https://github.com/RudjiGames/build   build
+      - git clone --depth 1 https://github.com/RudjiGames/zidar   zidar
       - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
-      - git clone --depth 1 https://github.com/bkaradzic/GENie GENie  # build GENie from source: we don't know the target CPU, can't use ARM binary from 'build'
+      - git clone --depth 1 https://github.com/bkaradzic/GENie GENie  # build GENie from source: we don't know the target CPU, can't use ARM binary from 'zi'
       - cd GENie && make && cd ..
     
     install:
-      - ./GENie/bin/darwin/genie --file=rqt/genie/genie.lua --gcc=osx-x64 gmake
+      - ./GENie/bin/darwin/genie --file=rqt/scripts/genie.lua --gcc=osx-x64 gmake
     
     build_script:
-      - cd ./.build/osx/clang/rqt/projects/
+      - cd ./.zidar/osx/clang/rqt/projects/
       - make config=${buildcfg}
