@@ -19,5 +19,4 @@ dofile "rqt.lua"
 
 solution "rqt"
 	setPlatforms()
-
-	addProject_lib( "rqt" )
+	projectLoad("rqt")

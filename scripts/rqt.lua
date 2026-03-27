@@ -7,6 +7,14 @@ function projectDependencies_rqt()
 	return { "rdebug", "rbase" }
 end
 
+function projectExtraConfig_rqt() 
+	includedirs	{ path.join(projectGetPath("rqt"), "../") }
+end
+
+function projectExtraConfigExecutable_rqt() 
+	includedirs	{ path.join(projectGetPath("rqt"), "../") }
+end
+
 function projectAdd_rqt()
-	addProject_qt("rqt", true)
+	addProject_qt("rqt", LibraryType.Tool)
 end
