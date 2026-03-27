@@ -91,6 +91,7 @@ for:
       - export QTDIR="$HOME/Qt/6.9.2"
       - export PATH="$HOME/Qt/6.9.2/bin:$HOME/Qt/6.9.2/libexec:$PATH"
       - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.9.2/lib/pkgconfig"
+      - export LD_LIBRARY_PATH="$HOME/Qt/6.9.2/lib:$HOME/Qt/6.9.2:$LD_LIBRARY_PATH"
       - git clone --depth 1 https://github.com/RudjiGames/rqt     rqt
       - git clone --depth 1 https://github.com/RudjiGames/zidar   zidar
       - git clone --depth 1 https://github.com/RudjiGames/rbase   rbase
