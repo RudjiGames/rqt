@@ -88,11 +88,9 @@ for:
     init:
       - sudo apt install -y lua5.3 lua-filesystem
       - sudo ln -sf /usr/bin/lua5.3 /usr/bin/lua
-      - ls -la $HOME/Qt/6.9.1/gcc_64/
-      - ls -la $HOME/Qt/6.9.1/gcc_64/bin/ || echo "bin/ not found"
-      - ls -la $HOME/Qt/6.9.1/gcc_64/libexec/ || echo "libexec/ not found"
-      - find $HOME/Qt/6.9.1 -name "moc" 2>/dev/null || echo "moc not found"
-      - find $HOME/Qt/6.9.1 -name "moc*" -type f 2>/dev/null || echo "no moc binaries found"
+      - ls $HOME/Qt/ || echo "No Qt directory"
+      - ls $HOME/Qt/6.9.1/ 2>/dev/null || ls $HOME/Qt/6.9/ 2>/dev/null || echo "No 6.9.x directory"
+      - find $HOME/Qt -maxdepth 3 -type d 2>/dev/null | head -30
       - export QTDIR="$HOME/Qt/6.9.1/gcc_64"
       - export PATH="$HOME/Qt/6.9.1/gcc_64/bin:$HOME/Qt/6.9.1/gcc_64/libexec:/home/appveyor/Qt/6.9.1/gcc_64/libexec:$PATH"
       - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.9.1/gcc_64/lib/pkgconfig"
