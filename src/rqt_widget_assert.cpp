@@ -168,9 +168,9 @@ void RQtErrorHandler::fatal(const char* _file, int _line, const char* _message)
 		mvr->moveToThread(appThread);
 
 	char message[1024+128];
-	strcpy(message, "<font color=\"red\">");
-	strcat(message, _message);
-	strcat(message, "</font>");
+	rtm::strlCpy(message, RTM_NUM_ELEMENTS(message), "<font color=\"red\">");
+	rtm::strlCat(message, RTM_NUM_ELEMENTS(message), _message);
+	rtm::strlCat(message, RTM_NUM_ELEMENTS(message), "</font>");
 	emit m_log->appendLog(message);
 
 	QCoreApplication::postEvent(mvr, new QEvent(QEvent::User));
@@ -183,18 +183,18 @@ void RQtErrorHandler::fatal(const char* _file, int _line, const char* _message)
 void RQtErrorHandler::warning(const char* /*_file*/, int /*_line*/, const char* _message)
 {
 	char message[1024+128];
-	strcpy(message, "<font color=\"yellow\">");
-	strcat(message, _message);
-	strcat(message, "</font>");
+	rtm::strlCpy(message, RTM_NUM_ELEMENTS(message), "<font color=\"yellow\">");
+	rtm::strlCat(message, RTM_NUM_ELEMENTS(message), _message);
+	rtm::strlCat(message, RTM_NUM_ELEMENTS(message), "</font>");
 	emit m_log->appendLog(message);
 }
 
 void RQtErrorHandler::debug(const char* /*_file*/, int /*_line*/, const char* _message)
 {
 	char message[1024+128];
-	strcpy(message, "<font>");
-	strcat(message, _message);
-	strcat(message, "</font>");
+	rtm::strlCpy(message, RTM_NUM_ELEMENTS(message), "<font>");
+	rtm::strlCat(message, RTM_NUM_ELEMENTS(message), _message);
+	rtm::strlCat(message, RTM_NUM_ELEMENTS(message), "</font>");
 	emit m_log->appendLog(message);
 }
 

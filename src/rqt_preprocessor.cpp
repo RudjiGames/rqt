@@ -139,7 +139,7 @@ void Preprocessor::addDefine(const char* _define)
 	std::string define;
 	std::string value;
 
-	while ((*_define != ' ') && (*_define != '\t'))
+	while (*_define && (*_define != ' ') && (*_define != '\t'))
 	{
 		define += *_define;
 		++_define;

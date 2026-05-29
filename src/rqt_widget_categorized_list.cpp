@@ -62,7 +62,7 @@ int RQtWidgetCategorizedList::addCategory(const QString& _category)
 void RQtWidgetCategorizedList::setCategoryIcon(const QString& _category, const QIcon& _icon)
 {
 	int idx = hasCategory(_category);
-	if (idx != -1)
+	if (idx == -1)
 		return;
 
 	ListCategory* cat = m_categories[idx];
