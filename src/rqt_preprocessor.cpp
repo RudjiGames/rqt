@@ -98,7 +98,8 @@ Preprocessor::LineType::Enum Preprocessor::LineTypeType(const std::string& _str)
 		
 		if (strStartsWith(src, "endif", &res))
 		{
-			m_enabled.pop_back();
+			if (m_enabled.size() > 1)	// keep the base 'true'; guard against unbalanced #endif
+				m_enabled.pop_back();
 			return LineType::Endif;
 		}
 	}
@@ -117,14 +118,30 @@ Preprocessor::LineType::Enum Preprocessor::LineTypeType(const std::string& _str)
 
 void Preprocessor::process(std::string& _str)
 {
-	const size_t numLineTypes = m_defines.size();
-	for (size_t i=0; i<numLineTypes; ++i)
+	const size_t numDefines = m_defines.size();
+
+	// Replace every occurrence of every define, repeating until stable so that defines whose value
+	// references another define (e.g. RQT_BORDER_STYLE -> "1px solid RQT_BORDER_COLOR") resolve
+	// fully. The pass count is capped so a self-referential define can't loop forever.
+	bool changed = true;
+	int  guard   = 0;
+	while (changed && (guard++ < 16))
 	{
-		const char* define = m_defines[i].c_str();
-		const char* pos = strstr(_str.c_str(), define);
-		if (pos)
+		changed = false;
+		for (size_t i=0; i<numDefines; ++i)
 		{
-			_str.replace(pos-_str.c_str(), strlen(define), m_defineValues[i].c_str());
+			const std::string& define = m_defines[i];
+			const std::string& value  = m_defineValues[i];
+			if (define.empty())
+				continue;
+
+			size_t pos = 0;
+			while ((pos = _str.find(define, pos)) != std::string::npos)
+			{
+				_str.replace(pos, define.length(), value);
+				pos += value.length();		// skip past the inserted value (avoids re-matching it here)
+				changed = true;
+			}
 		}
 	}
 
@@ -162,7 +179,7 @@ bool Preprocessor::isDefined(const char* _LineType)
 	const size_t numLineTypes = m_defines.size();
 	for (size_t i=0; i<numLineTypes; ++i)
 	{
-		if (strncmp(m_defines[i].c_str(), _LineType, numChars) == 0)
+		if ((m_defines[i].length() == numChars) && (strncmp(m_defines[i].c_str(), _LineType, numChars) == 0))
 			return true;
 	}
 

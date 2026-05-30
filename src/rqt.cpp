@@ -180,7 +180,17 @@ QColor appThemeColor(const char* _define, const QColor& _fallback)
 		{
 			const QStringList parts = value.mid(4, value.length() - 5).split(',');
 			if (parts.size() == 3)
-				color = QColor(parts[0].trimmed().toInt(), parts[1].trimmed().toInt(), parts[2].trimmed().toInt());
+			{
+				bool okR = false, okG = false, okB = false;
+				const int r = parts[0].trimmed().toInt(&okR);
+				const int g = parts[1].trimmed().toInt(&okG);
+				const int b = parts[2].trimmed().toInt(&okB);
+				// Only accept fully-parsed, in-range components; otherwise keep the fallback rather
+				// than producing a silent black/invalid QColor.
+				if (okR && okG && okB &&
+					(r >= 0 && r <= 255) && (g >= 0 && g <= 255) && (b >= 0 && b <= 255))
+					color = QColor(r, g, b);
+			}
 		}
 	}
 
