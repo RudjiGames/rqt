@@ -86,8 +86,13 @@ for:
       - job_name: Linux
 
     init:
-      - sudo apt install -y lua5.3 lua-filesystem
+      - sudo apt update
+      - sudo apt install -y lua5.3 lua-filesystem python3-pip libgl1-mesa-dev libglu1-mesa-dev libxkbcommon-dev
       - sudo ln -sf /usr/bin/lua5.3 /usr/bin/lua
+      # Qt is not preinstalled on the Ubuntu image (unlike the Windows/macOS images),
+      # so install it into $HOME/Qt/6.9.2/gcc_64 to match QTDIR below.
+      - python3 -m pip install --user aqtinstall
+      - python3 -m aqt install-qt linux desktop 6.9.2 linux_gcc_64 -O "$HOME/Qt"
       - export QTDIR="$HOME/Qt/6.9.2/gcc_64"
       - export PATH="$HOME/Qt/6.9.2/gcc_64/bin:$HOME/Qt/6.9.2/gcc_64/libexec:$PATH"
       - export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$HOME/Qt/6.9.2/gcc_64/lib/pkgconfig"
