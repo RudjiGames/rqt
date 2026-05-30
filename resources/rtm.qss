@@ -8,6 +8,7 @@
 #define RQT_ACTIVE_BACKGROUND_COLOR         rgb(44, 44, 44)
 #define RQT_HOVER_BACKGROUND_COLOR          rgb(50, 150, 170)
 #define RQT_SELECTED_BACKGROUND_COLOR       rgb(69, 69, 69)
+#define RQT_RENDER_BACKGROUND_COLOR         rgb(28, 28, 28)
 
 #define RQT_DEFAULT_TEXT_COLOR              rgb(190, 190, 190)
 #define RQT_DISABLED_TEXT_COLOR             rgb(100, 100, 100)

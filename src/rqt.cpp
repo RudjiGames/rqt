@@ -67,21 +67,30 @@ QString loadFile(const char* _path)
 	return content;
 }
 
+// Resolves the variables (#define color palette) file for a style. The actual Default (native
+// look, no stylesheet) is handled by callers before this is reached, so unknown values fall
+// back to the RTM palette.
+static const char* styleVariablesPath(AppStyle::Enum _style)
+{
+	switch (_style)
+	{
+		case AppStyle::PastelMint:		return ":/rqt/resources/pastel_mint.qss";
+		case AppStyle::Molokai:			return ":/rqt/resources/molokai.qss";
+		case AppStyle::TokyoNight:		return ":/rqt/resources/tokyonight.qss";
+		case AppStyle::RTM:
+		default:						return ":/rqt/resources/rtm.qss";
+	}
+}
+
 void appLoadStyleSheet(/*QApplication*/void* _app, AppStyle::Enum _style)
 {
 	if (_style == rqt::AppStyle::Default)
-		return;
-
-	QString style;
-	switch (_style)
 	{
-		case AppStyle::RTM: style = loadFile(":/rqt/resources/rtm.qss");
-							break;
-		default:
-			RTM_ERROR("Invalid style");
-	};
-	
-	QString stylesheet	= style + loadFile(":/rqt/resources/stylesheet.qss");
+		((QApplication*)_app)->setStyleSheet("");
+		return;
+	}
+
+	QString stylesheet	= loadFile(styleVariablesPath(_style)) + loadFile(":/rqt/resources/stylesheet.qss");
 
 	std::string src = stylesheet.toLatin1().data();
 	
@@ -106,16 +115,7 @@ std::string appPreProcessStyleSheet(const std::string& _in)
 	if (g_style == rqt::AppStyle::Default)
 		return "";
 
-	QString style;
-	switch (g_style)
-	{
-		case AppStyle::RTM: style = loadFile(":/rqt/resources/rtm.qss");
-		                    break;
-		default:
-			RTM_ERROR("Invalid style");
-	};
-	
-	QString stylesheet	= style + loadFile(":/rqt/resources/stylesheet.qss");
+	QString stylesheet	= loadFile(styleVariablesPath(g_style)) + loadFile(":/rqt/resources/stylesheet.qss");
 
 	std::string src = stylesheet.toLatin1().data();
 	
@@ -133,6 +133,76 @@ std::string appPreProcessStyleSheet(const std::string& _in)
 	std::string out = _in;
 	pp.process(out);
 	return out;
+}
+
+void appSetStyle(/*QApplication*/void* _app, AppStyle::Enum _style)
+{
+	if ((_style < AppStyle::Default) || (_style >= AppStyle::Count))
+		_style = AppStyle::RTM;
+
+	g_style = _style;
+	appLoadStyleSheet(_app, _style);
+}
+
+// Resolves a theme color define (e.g. "RQT_DEFAULT_BACKGROUND_COLOR") to a QColor for code that
+// paints manually (graphs, tree maps, ...) so it follows the active theme. Results are cached
+// per style; the cache is rebuilt automatically when the style changes.
+QColor appThemeColor(const char* _define, const QColor& _fallback)
+{
+	static AppStyle::Enum			s_cachedStyle = AppStyle::Count;	// invalid -> forces first rebuild
+	static QMap<QString, QColor>	s_cache;
+
+	if (s_cachedStyle != g_style)
+	{
+		s_cache.clear();
+		s_cachedStyle = g_style;
+	}
+
+	const QString key = QString::fromLatin1(_define);
+	if (s_cache.contains(key))
+		return s_cache.value(key);
+
+	QColor color = _fallback;
+
+	if (g_style != AppStyle::Default)
+	{
+		// Preprocess just the (small) palette file - we only need the #define substitution.
+		std::string src = loadFile(styleVariablesPath(g_style)).toLatin1().data();
+		Preprocessor pp(src);
+		pp.parse();
+
+		std::string out = _define;
+		pp.process(out);
+
+		QString value = QString::fromLatin1(out.c_str()).trimmed();
+		if (value.startsWith("rgb(") && value.endsWith(")"))
+		{
+			const QStringList parts = value.mid(4, value.length() - 5).split(',');
+			if (parts.size() == 3)
+				color = QColor(parts[0].trimmed().toInt(), parts[1].trimmed().toInt(), parts[2].trimmed().toInt());
+		}
+	}
+
+	s_cache.insert(key, color);
+	return color;
+}
+
+AppStyle::Enum appGetStyle()
+{
+	return g_style;
+}
+
+const char* appGetStyleName(AppStyle::Enum _style)
+{
+	switch (_style)
+	{
+		case AppStyle::Default:			return "System default";
+		case AppStyle::RTM:				return "MTuner dark";
+		case AppStyle::PastelMint:		return "Pastel mint";
+		case AppStyle::Molokai:			return "Molokai";
+		case AppStyle::TokyoNight:		return "Tokyo Night";
+		default:						return "Unknown";
+	}
 }
 
 } // namespace rqt

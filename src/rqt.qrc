@@ -1,6 +1,9 @@
 <RCC>
   <qresource prefix="rqt">
     <file>../resources/rtm.qss</file>
+    <file>../resources/pastel_mint.qss</file>
+    <file>../resources/molokai.qss</file>
+    <file>../resources/tokyonight.qss</file>
     <file>../resources/stylesheet.qss</file>
     <file>../resources/icons/checkbox_checked_disabled.png</file>
     <file>../resources/icons/checkbox_checked_enabled.png</file>

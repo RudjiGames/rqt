@@ -970,7 +970,7 @@ QTabWidget#tab_render_channels QWidget#render_widget_tab,
 QTabWidget#tab_render_channels QScrollArea#render_widget_scrollarea,
 QTabWidget#tab_render_channels QWidget#render_widget_wrapper
 {
-	background-color: rgb(28, 28, 28);
+	background-color: RQT_RENDER_BACKGROUND_COLOR;
 }
 
 QLabel#picking_mode_label
@@ -1079,7 +1079,7 @@ QProgressBar {
 	background-color: RQT_SELECTED_BACKGROUND_COLOR;
 	border-radius: 3px;
 	text-align: center;
-	color: rgb(192, 192, 192);
+	color: RQT_DEFAULT_TEXT_COLOR;
 }
 
 QProgressBar::chunk {
