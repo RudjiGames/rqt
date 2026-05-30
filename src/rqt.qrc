@@ -1,9 +1,10 @@
 <RCC>
   <qresource prefix="rqt">
     <file>../resources/rtm.qss</file>
-    <file>../resources/beige_owl.qss</file>
+    <file>../resources/bright_owl.qss</file>
     <file>../resources/monokai.qss</file>
     <file>../resources/shanghai.qss</file>
+    <file>../resources/wise_green.qss</file>
     <file>../resources/stylesheet.qss</file>
     <file>../resources/icons/checkbox_checked_disabled.png</file>
     <file>../resources/icons/checkbox_checked_enabled.png</file>

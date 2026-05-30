@@ -16,9 +16,10 @@ namespace rqt {
 		{
 			Default,			//< native Qt look (no custom stylesheet)
 			RTM,				//< the default MTuner dark theme
-			BeigeOwl,			//< warm light beige
+			BrightOwl,			//< warm light beige
 			Monokai,			//< dark, vibrant (classic Monokai)
 			Shanghai,			//< dark blue/purple (Tokyo Night palette), shown as "Shanghai Night"
+			WiseGreen,			//< warm light sage green
 
 			Count
 		};

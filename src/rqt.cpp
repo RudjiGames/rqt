@@ -74,9 +74,10 @@ static const char* styleVariablesPath(AppStyle::Enum _style)
 {
 	switch (_style)
 	{
-		case AppStyle::BeigeOwl:		return ":/rqt/resources/beige_owl.qss";
+		case AppStyle::BrightOwl:		return ":/rqt/resources/bright_owl.qss";
 		case AppStyle::Monokai:			return ":/rqt/resources/monokai.qss";
 		case AppStyle::Shanghai:		return ":/rqt/resources/shanghai.qss";
+		case AppStyle::WiseGreen:		return ":/rqt/resources/wise_green.qss";
 		case AppStyle::RTM:
 		default:						return ":/rqt/resources/rtm.qss";
 	}
@@ -197,10 +198,11 @@ const char* appGetStyleName(AppStyle::Enum _style)
 	switch (_style)
 	{
 		case AppStyle::Default:			return "System default";
-		case AppStyle::RTM:				return "MTuner dark";
-		case AppStyle::BeigeOwl:		return "Beige Owl";
+		case AppStyle::RTM:				return "MTuner Dark";
+		case AppStyle::BrightOwl:		return "Bright Owl";
 		case AppStyle::Monokai:			return "Monokai";
 		case AppStyle::Shanghai:		return "Shanghai Night";
+		case AppStyle::WiseGreen:		return "Wise Green";
 		default:						return "Unknown";
 	}
 }

@@ -1,0 +1,27 @@
+
+#define RQT_BORDER_COLOR                    rgb(170, 174, 134)
+#define RQT_BORDER_STYLE                    1px solid RQT_BORDER_COLOR
+
+#define RQT_DEFAULT_BACKGROUND_COLOR        rgb(224, 226, 203)
+#define RQT_INPUT_BACKGROUND_COLOR          rgb(243, 244, 230)
+#define RQT_DISABLED_INPUT_BACKGROUND_COLOR rgb(234, 235, 219)
+#define RQT_ACTIVE_BACKGROUND_COLOR         rgb(206, 209, 175)
+#define RQT_HOVER_BACKGROUND_COLOR          rgb(95, 111, 82)
+#define RQT_SELECTED_BACKGROUND_COLOR       rgb(188, 184, 138)
+#define RQT_RENDER_BACKGROUND_COLOR         rgb(236, 237, 222)
+
+#define RQT_DEFAULT_TEXT_COLOR              rgb(46, 52, 36)
+#define RQT_DISABLED_TEXT_COLOR             rgb(150, 154, 122)
+#define RQT_INFO_TEXT_COLOR                 rgb(108, 116, 88)
+#define RQT_HOVER_TEXT_COLOR                rgb(255, 255, 255)
+#define RQT_SELECTED_TEXT_COLOR             rgb(40, 45, 30)
+
+#ifdef _WIN32
+	#define FIXED_WIDTH_FONT_FAMILY         "Consolas"
+#endif
+#ifdef __APPLE__
+	#define FIXED_WIDTH_FONT_FAMILY         "Monaco"
+#endif
+#ifdef __linux__
+	#define FIXED_WIDTH_FONT_FAMILY         "Courier New"
+#endif
