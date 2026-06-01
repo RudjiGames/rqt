@@ -198,6 +198,15 @@ QColor appThemeColor(const char* _define, const QColor& _fallback)
 	return color;
 }
 
+// Shared style for the custom hover tool-tips (tree map, memory timeline, histogram, call stack).
+// They all build rich text with fixed light/saturated label colors, which are unreadable on the
+// light themes' default light tool-tip background - so force a dark background + light text for ALL
+// of them. One source of truth keeps the tool-tips consistent across views.
+QString appToolTipStyleSheet()
+{
+	return QStringLiteral("QLabel { background-color: rgb(30,30,30); color: rgb(230,230,230); border: 1px solid rgb(90,90,90); padding: 2px; }");
+}
+
 AppStyle::Enum appGetStyle()
 {
 	return g_style;
