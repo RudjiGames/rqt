@@ -61,7 +61,8 @@ void appLocalize(/*QMainWindow*/void* _app, /*QMenu**/void* _parentMenu, const c
 QString loadFile(const char* _path)
 {
 	QFile file(_path);
-	file.open(QFile::ReadOnly | QFile::Text);
+	if (!file.open(QFile::ReadOnly | QFile::Text))
+		return QString();
 	QString content = QLatin1String(file.readAll());
 	file.close();
 	return content;
